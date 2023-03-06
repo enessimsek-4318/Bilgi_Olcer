@@ -9,5 +9,10 @@ namespace Entities
     public class Exam
     {
         public int Id { get; set; }
+        public string Name { get; set; }
+        public int TestId { get; set; }
+        public List<Test> Test { get; set; }
+        public int GradeId { get; set; }
+        public List<Grade> Grade { get; set; }
     }
 }
