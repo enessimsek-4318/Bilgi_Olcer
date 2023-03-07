@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Absract\" />
-    <Folder Include="Concrete\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Bilgi_Olcer_DAL\Bilgi_Olcer_DAL.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
