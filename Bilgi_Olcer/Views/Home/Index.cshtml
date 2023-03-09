@@ -1,7 +1,429 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous" />
+    <link rel="shortcut icon"
+          href="./img/BilgiÖlçer-icon.png"
+          type="image/x-icon" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/HomeStyle.css" />
+    <title>BilgiÖlçer</title>
+</head>
+<body>
+    <!--1- NAVBAR -->
+    <nav id="nav" class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img class="photo" src="./img/BilgiÖlçer-resize.png" alt="" />
+            </a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+                    style="--bs-scroll-height: 100px">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Sınıflar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#dog">9.Sınıf</a></li>
+                            <li><a class="dropdown-item" href="#cat">10.Sınıf</a></li>
+                            <li><a class="dropdown-item" href="#fish">11.Sınıf</a></li>
+                            <li><a class="dropdown-item" href="#bird">12.Sınıf</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">İLETİŞİM</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2"
+                           type="search"
+                           placeholder="Ara"
+                           aria-label="Search" />
+                    <button class="btn btn-outline-danger" type="submit">
+                        Ara
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
-<h1>Cücü ne zamana biter elini siktiğim.</h1>
+    <!--2- CAROUSEL -->
+    <div id="carouselExampleIndicators"
+         class="carousel slide"
+         data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="0"
+                    class="active"
+                    aria-current="true"
+                    aria-label="Slide 1"></button>
+            <button type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            <button type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/img/60abf1b083ffe096333274b2_martinpublicseating-93415-versatility-learning-spaces-blogbanner1.jpg" class="d-block w-100 h-100" alt="dog" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/online-learning-2rs.jpg" class="d-block w-100" alt="cat" />
+            </div>
+            <div class="carousel-item">
+                <img src="./img/online-exam-3.jpg" class="d-block w-100 h-100" alt="fish" />
+            </div>
+            <div class="carousel-item">
+                <img src="./img/bird.jpg" class="d-block w-100 h-100" alt="bird" />
+            </div>
+        </div>
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
+    <!--3- PETS -->
+    <section id="pets" class="container bg-light p-3">
+        <h2 class="display-6 text-primary">Sınıflar</h2>
+        <div id="dog" class="card-deck">
+            <div class="card mb-2">
+                <div class="card-body d-inline-flex">
+                    <img class="card-img-top"
+                         src="./img/9-Sinif.jpg"
+                         alt="Card image cap" />
+                    <div class="p-2">
+                        <h5 class="card-title">9.Sınıf</h5>
+                        <p class="card-text">
+                            PetPark offers a wide range of dog food and treats and dog
+                            accessories. Here you'll find all brands of dog food, dog
+                            kennels, dog beds, dog leads, dog training equipment, and much
+                            more.
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="#1" class="text-decoration-none">TYT Sınavları</a>
+                            </li>
+                            <li>
+                                <a href="#1" class="text-decoration-none">Testler</a>
+                            </li>
+                            <li>
+                                <a href="#1" class="text-decoration-none">Dersler</a>
+                            </li>
+                            <li><a href="#1" class="text-decoration-none">Sınav Takvimi</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="cat" class="card mb-2">
+                <div class="card-body d-inline-flex">
+                    <img class="card-img-top"
+                         src="./img/10-Sinif.jpg"
+                         alt="Card image cap" />
+                    <div class="p-2">
+                        <h5 class="card-title">10.Sınıf</h5>
+                        <p class="card-text">
+                            PetPark offers a wide range of cat supplies and cat accessories.
+                            Here you'll find all brands of cat food, cat scratching posts,
+                            cat litter, cat flaps, cat beds, and much more.
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="#1" class="text-decoration-none">TYT Sınavları</a>
+                            </li>
+                            <li>
+                                <a href="#1" class="text-decoration-none">Testler</a>
+                            </li>
+                            <li>
+                                <a href="#1" class="text-decoration-none">Dersler</a>
+                            </li>
+                            <li><a href="#1" class="text-decoration-none">Sınav Takvimi</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="fish" class="card mb-2">
+                <div class="card-body d-inline-flex">
+                    <img class="card-img-top"
+                         src="./img/11-Sinif.jpg"
+                         alt="Card image cap" />
+                    <div class="p-2">
+                        <h5 class="card-title">11.Sınıf</h5>
+                        <p class="card-text">
+                            Here you'll find a wide variety of fish food and aquarium from
+                            all your favorite brands.
+                        </p>
+                        <ul>
+                            <li><a href="#1" class="text-decoration-none">TYT Sınavları</a></li>
+                            <li><a href="#1" class="text-decoration-none">AYT Sınavları</a></li>
+                            <li>
+                                <a href="#1" class="text-decoration-none">Testler</a>
+                            </li>
+                            <li>
+                                <a href="#1" class="text-decoration-none">Dersler</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="bird" class="card mb-2">
+                <div class="card-body d-inline-flex">
+                    <img class="card-img-top"
+                         src="./img/12-Sinif.jpg"
+                         alt="Card image cap" />
+                    <div class="p-2">
+                        <h5 class="card-title">12.Sınıf</h5>
+                        <p class="card-text">
+                            Bird supplies, bird accessories and bird food at PetPark: your
+                            bird pet shop. Whether parrot toys, perches, bird toys, or a
+                            budgie cage, PetPark has what you need!
+                        </p>
+                        <ul>
+                            <li><a href="#1" class="text-decoration-none">TYT Sınavları</a></li>
+                            <li>
+                                <a href="#1" class="text-decoration-none">AYT Sınavları</a>
+                            </li>
+                            <li><a href="#1" class="text-decoration-none">Testler</a></li>
+                            <li>
+                                <a href="#1" class="text-decoration-none">Dersler</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--4- ABOUT -->
+    <section id="about" class="container bg-light p-3">
+        <h2 class="display-6 text-primary">HAKKIMIZDA</h2>
+        <br />
+        <div class="card-deck">
+            <h5>En Geçerli Sınav Sistemi</h5>
+            <p>
+                PetPark offers a full range of pet supplies for you and your pets -
+                over 8,000 top products in stock and ready to ship. With over 5 years
+                of expertise in pet food and pet accessories, you can expect
+                <strong>top brands</strong> and quality products at amazing
+                <strong>low prices</strong>. <br />
+
+                It is our goal to make your life easier with simple
+                <strong>online ordering</strong> and
+                <strong>convenient home delivery</strong>. With helpful features such
+                as product videos, customer reviews and photos, and carefully
+                researched product descriptions, you can always make an informed
+                decision about which product is right for your pet. <br />
+
+                We’re proud to offer all the best for you and your pets 365 days of
+                the year.
+            </p>
+            <br />
+            <h5>En Güvenilir Sınav Sistemi</h5>
+            <p>
+                We've been making pets and their owners happy for over 5 years - since
+                2017 in fact. That means we've shipped over 48 million parcels to
+                countries across Europe. We work with delivery partners across Europe
+                to <strong>ship to 28 different countries</strong>. After all, from
+                Finland to Turkey and from Spain to Slovakia, our customers love their
+                pets!
+            </p>
+            <br />
+            <h5>En İyi Kalitede Soru ve Başarıya Ulaşım</h5>
+            <p>
+                We never share your personal data with advertisers or other third
+                parties. Your data is used for one thing only: processing your order.
+                <br />
+
+                You can learn more about our policies regarding data security in the
+                full zooplus <a href="#" class="text-success">privacy policy</a>.
+            </p>
+            <br />
+            <h5>Daha İyi bir Eğitim İçin </h5>
+            <p>
+                We work hard to make sure your parcel is on its way to you as quickly
+                as possible. With the best technology and a dedicated staff, your
+                parcel is carefully packed and double checked for quality. <br />
+
+                If you have any questions, <strong>contact with us</strong>, we are
+                always happy to help!
+            </p>
+        </div>
+    </section>
+
+    <!--5- CONTACT -->
+    <section id="contact" class="container bg-light p-3">
+        <h2 class="display-6 text-primary">İLETİŞİM</h2>
+        <p>Lütfen bizimle iletişime geçin, size yardımcı olmaktan mutluluk duyarız.</p>
+
+        <article>
+            <div class="row g-4 p-3">
+                <div class="col-md-4">
+                    <i class="fas fa-phone fa-2x text-danger"></i>
+                    <h4>Phone</h4>
+                    <a href="tel:+90234556565">+90234556565</a>
+                </div>
+                <div class="col-md-4">
+                    <i class="fab fa-whatsapp fa-3x text-danger"></i>
+                    <h4>Whatsapp</h4>
+                    <a href="https://wa.me/+90234556565">+90234556565</a>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-envelope fa-2x text-danger"></i>
+                    <h4>Email</h4>
+                    <a href="mailto:info@petpark.com">info@bilgiolcer.com</a>
+                </div>
+            </div>
+
+            <form class="row g-3" id="form-post" action="result.html" method="GET">
+
+                <!-- USERNAME -->
+                <div class="col-md-6 input-group">
+                    <!-- <label for="username">Name</label> -->
+                    <input class="form-control"
+                           type="text"
+                           id="username"
+                           placeholder="İsim"
+                           name="username" />
+                    <p></p>
+                </div>
+                <!-- EMAIL -->
+                <div class="col-md-6 input-group">
+                    <!-- <label for="email">Email</label> -->
+                    <input class="form-control"
+                           type="email"
+                           id="email"
+                           placeholder="Email"
+                           name="email" />
+                    <p></p>
+                </div>
+                <!-- NUMBER -->
+                <div class="col-md-6 input-group">
+                    <!-- <label for="number">Number</label> -->
+                    <input class="form-control"
+                           type="number"
+                           id="number"
+                           placeholder="Telefon Numarası"
+                           name="number" />
+                    <p></p>
+                </div>
+                <!-- FILE -->
+                <div class="col-md-6 input-group">
+                    <!-- <label for="file">Dosya</label> -->
+                    <input class="form-control"
+                           type="file"
+                           id="document"
+                           placeholder="Upload your document"
+                           name="file" />
+
+                </div>
+                <!-- subjecttext -->
+                <div class="col-12 input-group">
+                    <!-- <label for="subject-text">Subject-text</label> -->
+                    <input class="form-control"
+                           type="subject-text"
+                           id="subject-text"
+                           placeholder="Konuyu Yazabilirsiniz"
+                           name="subject-text" />
+                    <p></p>
+                </div>
+                <!-- commenttext -->
+                <div class="col-12 form-floating input-group">
+                    <textarea class="form-control"
+                              type="comment-text"
+                              id="comment-text"
+                              placeholder="enter your comment"
+                              name="comment-text"></textarea>
+                    <p></p>
+                </div>
+                <!-- button -->
+                <div class="col-12 p-4">
+                    <button type="submit" class="btn btn-danger" style="width: 7rem">
+                        Gönder
+                    </button>
+                </div>
+
+            </form>
+        </article>
+
+        <article id="location">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3129.0665332548638!2d38.315921350927425!3d38.34744208667762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407636c6bc324b31%3A0xe0426af88a149280!2zU3TDvGR5byBLZW1pa3NpeiBNYWxhdHlhIEZvdG_En3JhZsOnxLE!5e0!3m2!1str!2str!4v1663183592268!5m2!1str!2str"
+                    width="100%"
+                    height="450"
+                    style="border: 0"
+                    allowfullscreen="true"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </article>
+    </section>
+
+    <!--6- FOOTER -->
+    <footer class="bg-dark text-center text-light p-4">
+        <article>
+            <a href="#1"> <i class="fab fa-facebook-f"></i></a>
+            <a href="#1"> <i class="fab fa-youtube"></i></a>
+            <a href="#1"> <i class="fab fa-linkedin"></i></a>
+            <a href="#1"> <i class="fab fa-instagram"></i></a>
+        </article>
+
+        <article class="p-4 h6"> &copy Copyright by BilgiÖlçer <script>document.write(new Date().getFullYear())</script></article>
+    </footer>
+
+    <!--7- UP-BTN -->
+    <a id="btnup" class="btn-up" href="#nav">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+</body>
+</html>
