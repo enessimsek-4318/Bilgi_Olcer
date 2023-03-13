@@ -8,5 +8,10 @@ namespace Bilgi_Olcer.Controllers
         {
             return View();
         }
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
     }
 }

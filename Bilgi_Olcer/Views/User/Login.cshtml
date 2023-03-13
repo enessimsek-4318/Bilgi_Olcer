@@ -1,84 +1,54 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<div class="signin-div">
+	<div>
+		<form class="signin-form" action="action_page.php" method="post">
+			<div class="imgcontainer">
+				<h1>Haydi Giriş Yap</h1>
+				<h3>Hoşgeldin, Seni görmeyi özledik</h3>
+			</div>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="~/css/LoginStyle.css" />
-    <title>Document</title>
-</head>
+			<div class="container">
+				<input type="text" placeholder="Email ,telefon numarası & kullanıcı adı" name="uname" required>
 
-<body>
-    <div id="container">
-        <header id="Header">
-            <h1 id="Title">BİLGİ <span>ÖLÇER</span></h1>
-            <h3 id="Description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </h3>
-        </header>
-        <section id="Survey-Form-Container">
-            <form action="#" method="post">
-                <div class="input-box">
-                    <label for="Name">Name</label>
-                    <br />
-                    <input type="text" name="Name" id="Name" placeholder="Enter Your Name" />
-                </div>
-                <div class="input-box">
-                    <label for="Age">Age</label>
-                    <br />
-                    <input type="number" name="Age" id="Age" placeholder="Age" />
-                </div>
-                <div class="input-box">
-                    <label for="Email">Email</label>
-                    <br />
-                    <input type="email" name="Email" id="Email" placeholder="Email" />
-                </div>
-                <div class="input-box">
-                    <label for="Content">Content Type</label>
-                    <br />
-                    <select name="Content" id="Dropdown">
-                        <option value="" hidden selected>None</option>
-                        <option value="Movies">Movies</option>
-                        <option value="Series">Series</option>
-                        <option value="TV_Shows">TV Shows</option>
-                    </select>
-                </div>
-                <div class="input-box">
-                    <label for="">Movie Type</label>
-                    <br />
-                    <input type="checkbox" name="movie" id="first-check" value="Comedy" />
-                    <label for="first-check">Comedy</label>
-                    <br />
-                    <input type="checkbox" name="movie" id="second-check" value="Action" />
-                    <label for="second-check">Action</label>
-                    <br />
-                    <input type="checkbox" name="movie" id="third-check" value="Romance" />
-                    <label for="third-check">Romance</label>
-                </div>
-                <div class="input-box">
-                    <label for="">Gender</label>
-                    <br />
-                    <input type="radio" name="gender" id="first-radio" value="Male" />
-                    <label for="first-radio">Male</label>
-                    <br />
-                    <input type="radio" name="gender" id="second-radio" value="Female" />
-                    <label for="second-radio">Female</label>
-                    <br />
-                    <input type="radio" name="gender" id="third-radio" value="Other" />
-                    <label for="third-radio">Other</label>
-                </div>
-                <div class="input-box">
-                    <label for="feedback">Feedback</label>
-                    <br />
-                    <textarea name="feedback" id="feedback" placeholder="Any Comment"></textarea>
-                </div>
-                <div class="form-submit">
-                    <button type="submit" id="form-button">Send</button>
-                </div>
-            </form>
-        </section>
-    </div>
-</body>
+				<input type="password" placeholder="Şifre" name="psw" required>
 
-</html>
+				<button type="submit">Giriş Yap</button>
+
+				<label>
+					<input type="checkbox" checked="checked" name="remember"> Beni Hatırla
+				</label>
+
+				<span class="psw"><a href="./forgotpass.html">Şifreni mi unuttun ?</a></span>
+			</div>
+
+			<div class="other">
+				<hr width="40%" align="left">
+				<p>veya</p>
+				<hr width="40%" align="right">
+			</div>
+
+			<div class="social-media">
+				<ul class="social-m">
+					<li>
+						<a class="facebook" href="#">
+							<i class="fab fa-facebook" aria-hidden="true"></i>
+						</a>
+					</li>
+					<li>
+						<a class="apple" href="#">
+							<i class="fab fa-apple" aria-hidden="true"></i>
+						</a>
+					</li>
+					<li>
+						<a class="google" href="#">
+							<i class="fab fa-google" aria-hidden="true"></i>
+						</a>
+					</li>
+				</ul>
+
+				<span class="kayit">Hesabın yok mu? <a href="./signup.html">Kayıt Ol</a></span>
+
+			</div>
+		</form>
+	</div>
+
+</div>
