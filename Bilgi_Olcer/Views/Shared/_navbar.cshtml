@@ -1,7 +1,8 @@
-﻿<nav id="nav" class="navbar navbar-expand-lg bg-light">
+﻿<link rel="stylesheet" href="~/css/Navbar.css" />
+<nav id="nav" class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img class="photo" src="./img/BilgiÖlçer-resize.png" alt="" />
+            <img class="photo" src="~/img/BilgiÖlçer-resize.png" alt="" />
         </a>
         <button class="navbar-toggler"
                 type="button"
@@ -25,7 +26,7 @@
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
                 style="--bs-scroll-height: 100px">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
+                    <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Anasayfa</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
@@ -43,13 +44,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">Hakkımızda</a>
+                    <a class="nav-link" asp-controller="Home" asp-action="About">Hakkımızda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./contact.html">İLETİŞİM</a>
+                    <a class="nav-link" asp-controller="Home" asp-action="Contact">İLETİŞİM</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./signin.html"><button class="giris">Giriş / Kayıt Ol</button></a>
+                    <a class="nav-link" asp-controller="User" asp-action="Login"><button class="giris">Giriş / Kayıt Ol</button></a>
                 </li>
             </ul>
         </div>

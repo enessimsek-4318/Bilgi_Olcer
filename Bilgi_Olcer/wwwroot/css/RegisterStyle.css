@@ -1,3 +1,59 @@
+/*!----------------------- 1- NAVBAR----------------------*/
+.navbar{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.navbar li{
+
+  margin-right: 3rem;
+  
+}
+
+.nav-link{
+  color: #5D5A88;
+  transition: color 0.5s;
+}
+.nav-link:hover{
+  color: red;
+}
+
+.photo{
+  background-color: red;
+  height: 133px;
+  width: 135px;
+}
+
+.form-control{
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.btn-outline-danger{
+  margin-right: 4rem;
+}
+
+.giris{
+  color: #5D5A88;
+  background-color: white;
+  border-radius: 10px;
+  border-color: #D4D2E3;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.giris:hover{
+  background-color: #EC1010;
+  color: white;
+  transition:  0.7s;
+}
+
+
 
 /*! --------- 2- SIGN IN FORM ----------*/
 
@@ -9,7 +65,7 @@ form {
   }
   
   /* Full-width inputs */
-  input[type=text], input[type=password] {
+  input[type=text], input[type=password], input[type=number], input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -17,6 +73,7 @@ form {
     border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 5px;
+    
   }
   
   /* Set a style for all buttons */

@@ -12,5 +12,9 @@ namespace Bilgi_Olcer.Controllers
         {
             return View();
         }
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
     }
 }

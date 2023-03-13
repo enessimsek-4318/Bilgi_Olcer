@@ -12,6 +12,10 @@ namespace Bilgi_Olcer.Controllers
         {
             return View();
         }
+        public IActionResult About()
+        {
+            return View();
+        }
 
     }
 }
