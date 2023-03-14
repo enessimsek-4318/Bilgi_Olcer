@@ -1,16 +1,16 @@
 ﻿<link rel="stylesheet" href="~/css/LoginStyle.css" />
 <div class="signin-div">
 	<div>
-		<form class="signin-form" action="action_page.php" method="post">
+		<form class="signin-form" action="/User/Login" method="post">
 			<div class="imgcontainer">
 				<h1>Haydi Giriş Yap</h1>
 				<h3>Hoşgeldin, Seni görmeyi özledik</h3>
 			</div>
 
 			<div class="container">
-				<input type="text" placeholder="Email ,telefon numarası & kullanıcı adı" name="uname" required>
+				<input type="email" placeholder="Email ,telefon numarası & kullanıcı adı" name="Email" required>
 
-				<input type="password" placeholder="Şifre" name="psw" required>
+				<input type="password" placeholder="Şifre" name="Password" required>
 
 				<button type="submit">Giriş Yap</button>
 
