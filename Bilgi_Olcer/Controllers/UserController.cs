@@ -33,10 +33,6 @@ namespace Bilgi_Olcer.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
             var user = new User()
             {
                 FullName = model.FullName,
@@ -77,6 +73,42 @@ namespace Bilgi_Olcer.Controllers
         }
         public IActionResult ForgotPassword()
         {
+            return View();
+        }
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            //if (userId == null || token == null)
+            //{
+            //    TempData.Put("message", new ResultMessage()
+            //    {
+            //        Title = "Hesap Onayı",
+            //        Message = "Hesap Onayı İçin Bilgileriniz Yanlıştır.",
+            //        Css = "danger"
+            //    });
+            //    return Redirect("~/");
+            //}
+            //var user = await _userManager.FindByIdAsync(userId);
+            //if (user != null)
+            //{
+            //    var result = await _userManager.ConfirmEmailAsync(user, token);
+            //    if (result.Succeeded)
+            //    {
+            //        _cartService.InitializeCart(user.Id);
+            //        TempData.Put("message", new ResultMessage()
+            //        {
+            //            Title = "Hesap Onayı",
+            //            Message = $"Hoşgeldiniz Sayın {user.FullName}, Hesabınız Onaylanmıştır.",
+            //            Css = "success"
+            //        });
+            //        return RedirectToAction("Login", "Account");
+            //    }
+            //}
+            //TempData.Put("message", new ResultMessage()
+            //{
+            //    Title = "Hesap Onayı",
+            //    Message = "Üzgünüz Hesabınızın Aktivasyonu Gerçekleştirilemedi.",
+            //    Css = "danger"
+            //});
             return View();
         }
     }
