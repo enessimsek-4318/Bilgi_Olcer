@@ -11,7 +11,7 @@ namespace Bilgi_Olcer.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login(LoginModel entity)
+        public IActionResult Login(LoginModel model)
         {
             return View();
         }
@@ -20,7 +20,7 @@ namespace Bilgi_Olcer.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Register(User entity)
+        public IActionResult Register(RegisterModel model)
         {
             return View();
         }
