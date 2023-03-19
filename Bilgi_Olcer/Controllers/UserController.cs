@@ -1,4 +1,5 @@
-﻿using Bilgi_Olcer.Identity;
+﻿using Bilgi_Olcer.EmailServices;
+using Bilgi_Olcer.Identity;
 using Bilgi_Olcer.Models;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Identity;
@@ -43,21 +44,21 @@ namespace Bilgi_Olcer.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                ////generate token
-                //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                //generate token
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-                //var callbackUrl = Url.Action("ConfirmEmail", "Account", new
-                //{
-                //    userId = user.Id,
-                //    token = code
-                //});
+                var callbackUrl = Url.Action("ConfirmEmail", "Account", new
+                {
+                    userId = user.Id,
+                    token = code
+                });
 
-                ////send email
-                //string siteUrl = "https://localhost:7232";
-                //string activateUrl = $"{siteUrl}{callbackUrl}";
-                //string body = $"Merhaba {model.UserName};<br><br>Hesabınızı aktifleştirmek için <a href='{activateUrl}' target='_blank'> tıklayınız</a>.";
+                //send email
+                string siteUrl = "https://localhost:7232";
+                string activateUrl = $"{siteUrl}{callbackUrl}";
+                string body = $"Merhaba {model.UserName};<br><br>Hesabınızı aktifleştirmek için <a href='{activateUrl}' target='_blank'> tıklayınız</a>.";
 
-                //MailHelper.SendEmail(body, model.Email, "Marka User Activition");
+                MailHelper.SendEmail(body, model.Email, "Bilgi Ölçer User Activition");
 
                 //TempData.Put("message", new ResultMessage()
                 //{
@@ -65,7 +66,7 @@ namespace Bilgi_Olcer.Controllers
                 //    Message = "Email adresinize gelen link ile hesabınızı onaylayınız",
                 //    Css = "warning"
                 //});
-                //return RedirectToAction("login", "account");
+                return RedirectToAction("login", "account");
 
             }
             ModelState.AddModelError("", "Kayıt Esnasında Bilinmeyen Bir Hata Oluştu!!");
@@ -77,32 +78,32 @@ namespace Bilgi_Olcer.Controllers
         }
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            //if (userId == null || token == null)
-            //{
-            //    TempData.Put("message", new ResultMessage()
-            //    {
-            //        Title = "Hesap Onayı",
-            //        Message = "Hesap Onayı İçin Bilgileriniz Yanlıştır.",
-            //        Css = "danger"
-            //    });
-            //    return Redirect("~/");
-            //}
-            //var user = await _userManager.FindByIdAsync(userId);
-            //if (user != null)
-            //{
-            //    var result = await _userManager.ConfirmEmailAsync(user, token);
-            //    if (result.Succeeded)
-            //    {
-            //        _cartService.InitializeCart(user.Id);
-            //        TempData.Put("message", new ResultMessage()
-            //        {
-            //            Title = "Hesap Onayı",
-            //            Message = $"Hoşgeldiniz Sayın {user.FullName}, Hesabınız Onaylanmıştır.",
-            //            Css = "success"
-            //        });
-            //        return RedirectToAction("Login", "Account");
-            //    }
-            //}
+            if (userId == null || token == null)
+            {
+                //TempData.Put("message", new ResultMessage()
+                //{
+                //    Title = "Hesap Onayı",
+                //    Message = "Hesap Onayı İçin Bilgileriniz Yanlıştır.",
+                //    Css = "danger"
+                //});
+                return Redirect("~/");
+            }
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                var result = await _userManager.ConfirmEmailAsync(user, token);
+                if (result.Succeeded)
+                {
+                    //_cartService.InitializeCart(user.Id);
+                    //TempData.Put("message", new ResultMessage()
+                    //{
+                    //    Title = "Hesap Onayı",
+                    //    Message = $"Hoşgeldiniz Sayın {user.FullName}, Hesabınız Onaylanmıştır.",
+                    //    Css = "success"
+                    //});
+                    return RedirectToAction("Login", "Account");
+                }
+            }
             //TempData.Put("message", new ResultMessage()
             //{
             //    Title = "Hesap Onayı",
