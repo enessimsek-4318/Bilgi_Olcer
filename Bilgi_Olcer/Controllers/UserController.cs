@@ -45,17 +45,18 @@ namespace Bilgi_Olcer.Controllers
             if (result.Succeeded)
             {
                 //generate token
-                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-                var callbackUrl = Url.Action("ConfirmEmail", "User", new
+                
+                var confirmationLink = Url.Action("ConfirmEmail", "User", new
                 {
                     userId = user.Id,
-                    token = code
+                    token = token
                 });
 
                 //send email
-                string siteUrl = "https://localhost:7281";
-                string activateUrl = $"{siteUrl}{callbackUrl}";
+                string siteUrl = "https://localhost:7281";                
+                string activateUrl = $"{siteUrl}{confirmationLink}";
                 string body = $"Merhaba {model.UserName};<br><br>Hesabınızı aktifleştirmek için <a href='{activateUrl}' target='_blank'> tıklayınız</a>.";
 
                 MailHelper.SendEmail(body, model.Email, "Bilgi Ölçer User Activition");
