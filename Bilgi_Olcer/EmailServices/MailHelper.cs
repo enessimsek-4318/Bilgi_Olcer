@@ -14,7 +14,6 @@ namespace Bilgi_Olcer.EmailServices
         public static bool SendEmail(string body, List<string> to, string subject, bool isHtml = true)
         {
             bool result = false;
-
             try
             {
                 var message = new MailMessage();
@@ -42,7 +41,6 @@ namespace Bilgi_Olcer.EmailServices
 
                 throw;
             }
-
             return result;
         }
     }

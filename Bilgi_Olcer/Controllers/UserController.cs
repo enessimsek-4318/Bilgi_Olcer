@@ -47,14 +47,14 @@ namespace Bilgi_Olcer.Controllers
                 //generate token
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-                var callbackUrl = Url.Action("ConfirmEmail", "Account", new
+                var callbackUrl = Url.Action("ConfirmEmail", "User", new
                 {
                     userId = user.Id,
                     token = code
                 });
 
                 //send email
-                string siteUrl = "https://localhost:7232";
+                string siteUrl = "https://localhost:7281";
                 string activateUrl = $"{siteUrl}{callbackUrl}";
                 string body = $"Merhaba {model.UserName};<br><br>Hesabınızı aktifleştirmek için <a href='{activateUrl}' target='_blank'> tıklayınız</a>.";
 
@@ -66,7 +66,7 @@ namespace Bilgi_Olcer.Controllers
                 //    Message = "Email adresinize gelen link ile hesabınızı onaylayınız",
                 //    Css = "warning"
                 //});
-                return RedirectToAction("login", "account");
+                return RedirectToAction("Login", "User");
 
             }
             ModelState.AddModelError("", "Kayıt Esnasında Bilinmeyen Bir Hata Oluştu!!");
@@ -101,7 +101,7 @@ namespace Bilgi_Olcer.Controllers
                     //    Message = $"Hoşgeldiniz Sayın {user.FullName}, Hesabınız Onaylanmıştır.",
                     //    Css = "success"
                     //});
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("Login", "User");
                 }
             }
             //TempData.Put("message", new ResultMessage()
