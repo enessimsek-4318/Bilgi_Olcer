@@ -49,9 +49,21 @@
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Home" asp-action="Contact">İLETİŞİM</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="User" asp-action="Login"><button class="giris">Giriş / Kayıt Ol</button></a>
-                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="#" asp-action="#"><button class="giris">@User.Identity.Name</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="User" asp-action="Logout"><button class="giris">Çıkış Yap</button></a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="User" asp-action="Login"><button class="giris">Giriş / Kayıt Ol</button></a>
+                    </li>
+                }                
             </ul>
         </div>
     </div>
