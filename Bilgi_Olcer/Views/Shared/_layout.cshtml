@@ -23,6 +23,10 @@
 
 	<!--1- NAVBAR -->
 	<partial name="_navbar" />
+	@if (TempData["message"]!=null)
+		{
+			<partial name="_resultMessage" model="@(TempData.Get<ResultMessage>("message"))" />
+		}
 	@RenderBody()
 	<!--6- FOOTER -->
 	<partial name="_footer"/>
