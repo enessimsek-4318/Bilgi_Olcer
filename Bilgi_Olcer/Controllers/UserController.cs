@@ -154,12 +154,12 @@ namespace Bilgi_Olcer.Controllers
             }
             else
             {
-                //TempData.Put("message", new ResultMessage()
-                //{
-                //    Title = "Forgot Password",
-                //    Message = "Belirtmiş Olduğunuz Email Adresine Tanımlı Kullanıcı Bulunamadı.",
-                //    Css = "danger"
-                //});
+                TempData.Put("message", new ResultMessage()
+                {
+                    Title = "Forgot Password",
+                    Message = "Belirtmiş Olduğunuz Email Adresine Tanımlı Kullanıcı Bulunamadı.",
+                    Css = "danger"
+                });
                 return View();
             }            
         }
@@ -167,12 +167,12 @@ namespace Bilgi_Olcer.Controllers
         {
             if (userId == null || token == null)
             {
-                //TempData.Put("message", new ResultMessage()
-                //{
-                //    Title = "Hesap Onayı",
-                //    Message = "Hesap Onayı İçin Bilgileriniz Yanlıştır.",
-                //    Css = "danger"
-                //});
+                TempData.Put("message", new ResultMessage()
+                {
+                    Title = "Hesap Onayı",
+                    Message = "Hesap Onayı İçin Bilgileriniz Yanlıştır.",
+                    Css = "danger"
+                });
                 return Redirect("~/");
             }
             var user = await _userManager.FindByIdAsync(userId);
@@ -191,12 +191,12 @@ namespace Bilgi_Olcer.Controllers
                     return RedirectToAction("Login", "User");
                 }
             }
-            //TempData.Put("message", new ResultMessage()
-            //{
-            //    Title = "Hesap Onayı",
-            //    Message = "Üzgünüz Hesabınızın Aktivasyonu Gerçekleştirilemedi.",
-            //    Css = "danger"
-            //});
+            TempData.Put("message", new ResultMessage()
+            {
+                Title = "Hesap Onayı",
+                Message = "Üzgünüz Hesabınızın Aktivasyonu Gerçekleştirilemedi.",
+                Css = "danger"
+            });
             return View();
         }
         public async Task<IActionResult> Logout()
