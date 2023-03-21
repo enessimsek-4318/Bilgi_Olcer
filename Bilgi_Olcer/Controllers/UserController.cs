@@ -11,20 +11,37 @@ namespace Bilgi_Olcer.Controllers
     {
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
-        
+
         public UserController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            
+
         }
         public IActionResult Login()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Login(LoginModel model)
-        {
+        public async Task<IActionResult> Login(LoginModel model)
+        {            
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Kullanıcı Bulunamadı.");
+                return View(model);
+            }
+            if (!await _userManager.IsEmailConfirmedAsync(user))
+            {
+                ModelState.AddModelError("", "Lütfen Hesabınızı email ile aktivasyonunu gerçekleştiriniz.");
+                return View(model);
+            }
+            var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            ModelState.AddModelError("", "Email veya Parola yanlış.");
             return View();
         }
         public IActionResult Register()
@@ -47,7 +64,7 @@ namespace Bilgi_Olcer.Controllers
                 //generate token
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-                
+
                 var confirmationLink = Url.Action("ConfirmEmail", "User", new
                 {
                     userId = user.Id,
@@ -55,7 +72,7 @@ namespace Bilgi_Olcer.Controllers
                 });
 
                 //send email
-                string siteUrl = "https://localhost:7281";                
+                string siteUrl = "https://localhost:7281";
                 string activateUrl = $"{siteUrl}{confirmationLink}";
                 string body = $"Merhaba {model.UserName};<br><br>Hesabınızı aktifleştirmek için <a href='{activateUrl}' target='_blank'> tıklayınız</a>.";
 
