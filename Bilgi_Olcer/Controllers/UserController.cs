@@ -24,25 +24,34 @@ namespace Bilgi_Olcer.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
-        {            
+        {
             var user = await _userManager.FindByEmailAsync(model.Email);
-            if (user == null)
+            if (user != null)
+            {
+                if (await _userManager.IsEmailConfirmedAsync(user))
+                {
+                    var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Email veya Parola yanlış.");
+                        return View();
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Lütfen Hesabınızı email ile aktivasyonunu gerçekleştiriniz.");
+                    return View(model);
+                }
+            }
+            else
             {
                 ModelState.AddModelError("", "Kullanıcı Bulunamadı.");
                 return View(model);
             }
-            if (!await _userManager.IsEmailConfirmedAsync(user))
-            {
-                ModelState.AddModelError("", "Lütfen Hesabınızı email ile aktivasyonunu gerçekleştiriniz.");
-                return View(model);
-            }
-            var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
-            if (result.Succeeded)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            ModelState.AddModelError("", "Email veya Parola yanlış.");
-            return View();
         }
         public IActionResult Register()
         {
@@ -92,6 +101,22 @@ namespace Bilgi_Olcer.Controllers
         }
         public IActionResult ForgotPassword()
         {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                //TempData.Put("message", new ResultMessage()
+                //{
+                //    Title = "Forgot Password",
+                //    Message = "Bilgileriniz Hatalıdır.",
+                //    Css = "danger"
+                //});
+                //return View();
+            }
+            var user = await _userManager.FindByEmailAsync(email);
             return View();
         }
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
