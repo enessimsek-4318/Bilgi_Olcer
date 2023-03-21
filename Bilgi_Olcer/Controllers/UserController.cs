@@ -1,4 +1,5 @@
 ﻿using Bilgi_Olcer.EmailServices;
+using Bilgi_Olcer.Extensions;
 using Bilgi_Olcer.Identity;
 using Bilgi_Olcer.Models;
 using Microsoft.AspNetCore.Cors.Infrastructure;
@@ -37,19 +38,34 @@ namespace Bilgi_Olcer.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Email veya Parola yanlış.");
+                        TempData.Put("message", new ResultMessage()
+                        {
+                            Title = "Kullanıcı İşlemleri",
+                            Message = "Email veya Şifreniz Yanlış",
+                            Css = "danger"
+                        });
                         return View();
                     }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Lütfen Hesabınızı email ile aktivasyonunu gerçekleştiriniz.");
+                    TempData.Put("message", new ResultMessage()
+                    {
+                        Title = "Hesap Aktivasyonu",
+                        Message = "Email adresinize gelen link ile hesabınızı onaylayınız",
+                        Css = "warning"
+                    });
                     return View(model);
                 }
             }
             else
             {
-                ModelState.AddModelError("", "Kullanıcı Bulunamadı.");
+                TempData.Put("message", new ResultMessage()
+                {
+                    Title = "Kullanıcı İşlemleri",
+                    Message = "Kayıtlı Kullanıcı Bulunamadı",
+                    Css = "danger"
+                });
                 return View(model);
             }
         }
@@ -87,12 +103,12 @@ namespace Bilgi_Olcer.Controllers
 
                 MailHelper.SendEmail(body, model.Email, "Bilgi Ölçer User Activition");
 
-                //TempData.Put("message", new ResultMessage()
-                //{
-                //    Title = "Hesap Onayı",
-                //    Message = "Email adresinize gelen link ile hesabınızı onaylayınız",
-                //    Css = "warning"
-                //});
+                TempData.Put("message", new ResultMessage()
+                {
+                    Title = "Hesap Onayı",
+                    Message = "Email adresinize gelen link ile hesabınızı onaylayınız",
+                    Css = "warning"
+                });
                 return RedirectToAction("Login", "User");
 
             }
@@ -108,13 +124,13 @@ namespace Bilgi_Olcer.Controllers
         {
             if (string.IsNullOrEmpty(email))
             {
-                //TempData.Put("message", new ResultMessage()
-                //{
-                //    Title = "Forgot Password",
-                //    Message = "Bilgileriniz Hatalıdır.",
-                //    Css = "danger"
-                //});
-                //return View();
+                TempData.Put("message", new ResultMessage()
+                {
+                    Title = "Forgot Password",
+                    Message = "Bilgileriniz Hatalıdır.",
+                    Css = "danger"
+                });
+                return View();
             }
             var user = await _userManager.FindByEmailAsync(email);
             if (user != null)
@@ -128,12 +144,12 @@ namespace Bilgi_Olcer.Controllers
                 string body = $"Merhabalar, Parolanızı Yenilemek için  <a href='{siteUrl}{resetUrl}'> tıklayınız</a>.";
 
                 MailHelper.SendEmail(body, email, "Bilgi Ölçer Password Reset");
-                //TempData.Put("message", new ResultMessage()
-                //{
-                //    Title = "Forgot Password",
-                //    Message = "Parola Yenilemek İçin Hesabınıza Email Gönderilmiştir.",
-                //    Css = "warning"
-                //});
+                TempData.Put("message", new ResultMessage()
+                {
+                    Title = "Forgot Password",
+                    Message = "Parola Yenilemek İçin Hesabınıza Email Gönderilmiştir.",
+                    Css = "warning"
+                });
                 return RedirectToAction("Login", "User");
             }
             else
