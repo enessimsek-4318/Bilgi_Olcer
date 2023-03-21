@@ -117,7 +117,35 @@ namespace Bilgi_Olcer.Controllers
                 //return View();
             }
             var user = await _userManager.FindByEmailAsync(email);
-            return View();
+            if (user != null)
+            {
+                var code = _userManager.GeneratePasswordResetTokenAsync(user);
+                var resetUrl = Url.Action("ResetPassword", "User", new
+                {
+                    token = code
+                });
+                string siteUrl = "https://localhost:7281";
+                string body = $"Merhabalar, Parolanızı Yenilemek için  <a href='{siteUrl}{resetUrl}'> tıklayınız</a>.";
+
+                MailHelper.SendEmail(body, email, "Bilgi Ölçer Password Reset");
+                //TempData.Put("message", new ResultMessage()
+                //{
+                //    Title = "Forgot Password",
+                //    Message = "Parola Yenilemek İçin Hesabınıza Email Gönderilmiştir.",
+                //    Css = "warning"
+                //});
+                return RedirectToAction("Login", "User");
+            }
+            else
+            {
+                //TempData.Put("message", new ResultMessage()
+                //{
+                //    Title = "Forgot Password",
+                //    Message = "Belirtmiş Olduğunuz Email Adresine Tanımlı Kullanıcı Bulunamadı.",
+                //    Css = "danger"
+                //});
+                return View();
+            }            
         }
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
