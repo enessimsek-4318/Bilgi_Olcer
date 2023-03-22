@@ -157,7 +157,7 @@ namespace Bilgi_Olcer.Controllers
                 TempData.Put("message", new ResultMessage()
                 {
                     Title = "Forgot Password",
-                    Message = "Belirtmiş Olduğunuz Email Adresine Tanımlı Kullanıcı Bulunamadı.",
+                    Message = "Belirtmiş Olduğunuz Email Adresine Kayıtlı Kullanıcı Bulunamadı.",
                     Css = "danger"
                 });
                 return View();
@@ -181,13 +181,12 @@ namespace Bilgi_Olcer.Controllers
                 var result = await _userManager.ConfirmEmailAsync(user, token);
                 if (result.Succeeded)
                 {
-                    //_cartService.InitializeCart(user.Id);
-                    //TempData.Put("message", new ResultMessage()
-                    //{
-                    //    Title = "Hesap Onayı",
-                    //    Message = $"Hoşgeldiniz Sayın {user.FullName}, Hesabınız Onaylanmıştır.",
-                    //    Css = "success"
-                    //});
+                    TempData.Put("message", new ResultMessage()
+                    {
+                        Title = "Hesap Onayı",
+                        Message = $"Hoşgeldiniz Sayın {user.FullName}, Hesabınız Onaylanmıştır.",
+                        Css = "success"
+                    });
                     return RedirectToAction("Login", "User");
                 }
             }
@@ -202,7 +201,73 @@ namespace Bilgi_Olcer.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
+            TempData.Put("message", new ResultMessage()
+            {
+                Title = "Oturum Kapatma",
+                Message = "Hesabınızdan Çıkış Yapılmıştır.",
+                Css = "warning"
+            });
             return RedirectToAction("Index", "Home");
+        }
+        public IActionResult ResetPassword(string token)
+        {
+            if (token!=null)
+            {
+                var model = new ResetPasswordModel()
+                {
+                    Token = token
+                };
+                return View(model);
+            }
+            else
+            {
+                TempData.Put("message", new ResultMessage()
+                {
+                    Title = "Reset Password",
+                    Message = "Şifre Yenileme İşleminiz Gerçekleşmedi.",
+                    Css = "danger"
+                });
+                return RedirectToAction("Index", "Home");
+            }
+           
+        }
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
+        {
+            var user=await _userManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+                if (result.Succeeded)
+                {
+                    TempData.Put("message", new ResultMessage()
+                    {
+                        Title = "Forgot Password",
+                        Message = "Parolanız Değiştirilmiştir.",
+                        Css = "success"
+                    });
+                    return RedirectToAction("Login", "Account");
+                }
+                else
+                {
+                    TempData.Put("message", new ResultMessage()
+                    {
+                        Title = "Forgot Password",
+                        Message = "Parolanız Değiştirilemedi.",
+                        Css = "danger"
+                    });
+                    return View(model);
+                }
+            }
+            else
+            {
+                TempData.Put("message", new ResultMessage()
+                {
+                    Title = "Reset Password",
+                    Message = "Email Adresine Kayıtlı Kullanıcı Bulunamadı.",
+                    Css = "danger"
+                });
+                return View(model);
+            }
         }
     }
 }
