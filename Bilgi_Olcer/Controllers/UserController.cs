@@ -135,7 +135,7 @@ namespace Bilgi_Olcer.Controllers
             var user = await _userManager.FindByEmailAsync(email);
             if (user != null)
             {
-                var code = _userManager.GeneratePasswordResetTokenAsync(user);
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var resetUrl = Url.Action("ResetPassword", "User", new
                 {
                     token = code
@@ -209,6 +209,7 @@ namespace Bilgi_Olcer.Controllers
             });
             return RedirectToAction("Index", "Home");
         }
+        [HttpGet]
         public IActionResult ResetPassword(string token)
         {
             if (token!=null)
@@ -231,6 +232,7 @@ namespace Bilgi_Olcer.Controllers
             }
            
         }
+        [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
         {
             var user=await _userManager.FindByEmailAsync(model.Email);
@@ -245,7 +247,7 @@ namespace Bilgi_Olcer.Controllers
                         Message = "Parolanız Değiştirilmiştir.",
                         Css = "success"
                     });
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("Login", "User");
                 }
                 else
                 {
