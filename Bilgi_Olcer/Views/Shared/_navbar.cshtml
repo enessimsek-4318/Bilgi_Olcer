@@ -1,4 +1,5 @@
-﻿<link rel="stylesheet" href="~/css/Navbar.css" />
+﻿<!--1- NAVBAR -->
+<link rel="stylesheet" href="~/css/Navbar.css" />
 <nav id="nav" class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -13,20 +14,11 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2"
-                       type="search"
-                       placeholder="Ara"
-                       aria-label="Search" />
-                <button class="btn btn-outline-danger" type="submit">
-                    Ara
-                </button>
-            </form>
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        <div class="collapse navbar-collapse " id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll "
                 style="--bs-scroll-height: 100px">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                    <a class="nav-link" aria-current="page" href="/Home/Index">Anasayfa</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
@@ -37,33 +29,32 @@
                         Sınıflar
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#dog">9.Sınıf</a></li>
-                        <li><a class="dropdown-item" href="#cat">10.Sınıf</a></li>
-                        <li><a class="dropdown-item" href="#fish">11.Sınıf</a></li>
-                        <li><a class="dropdown-item" href="#bird">12.Sınıf</a></li>
+                        <li><a class="dropdown-item" href="./sınıflar/9.sinif.html">9.Sınıf</a></li>
+                        <li><a class="dropdown-item" href="./sınıflar/10.sinif.html">10.Sınıf</a></li>
+                        <li><a class="dropdown-item" href="./sınıflar/11.sinif.html">11.Sınıf</a></li>
+                        <li><a class="dropdown-item" href="./sınıflar/12.sinif.html">12.Sınıf</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="About">Hakkımızda</a>
+                    <a class="nav-link" href="/Home/About">Hakkımızda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="Contact">İLETİŞİM</a>
+                    <a class="nav-link" href="/Home/Contact">İLETİŞİM</a>
                 </li>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="#" asp-action="#"><button class="giris">@User.Identity.Name</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="User" asp-action="Logout"><button class="giris">Çıkış Yap</button></a>
-                    </li>
+                @if(!User.Identity.IsAuthenticated){
+                <li class="nav-item">
+                    <a class="nav-link" href="/User/Login"><button class="giris">Giriş / Kayıt Ol</button></a>
+                </li>
                 }
-                else
-                {
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="User" asp-action="Login"><button class="giris">Giriş / Kayıt Ol</button></a>
-                    </li>
-                }                
+                else{
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">@User.Identity.Name</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/User/Logout"><button class="giris">Logout</button></a>
+                </li>
+                }
+                
             </ul>
         </div>
     </div>

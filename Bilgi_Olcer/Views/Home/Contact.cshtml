@@ -1,86 +1,95 @@
-﻿<section id="contact" class="container bg-light p-3">
-	<h2 class="display-6 text-primary">İLETİŞİM</h2>
-	<p>Lütfen bizimle iletişime geçin, size yardımcı olmaktan mutluluk duyarız.</p>
+﻿<!--5- CONTACT -->
+<section id="contact" class="container bg-light p-3">
+    <h2 class="display-6 text-primary">İLETİŞİM</h2>
+    <p>Lütfen bizimle iletişime geçin, size yardımcı olmaktan mutluluk duyarız.</p>
 
-	<article>
-		<div class="row g-4 p-3">
-			<div class="col-md-4">
-				<i class="fas fa-phone fa-2x text-danger"></i>
-				<h4>Phone</h4>
-				<a href="tel:+90234556565">+90234556565</a>
-			</div>
-			<div class="col-md-4">
-				<i class="fab fa-whatsapp fa-3x text-danger"></i>
-				<h4>Whatsapp</h4>
-				<a href="https://wa.me/+90234556565">+90234556565</a>
-			</div>
-			<div class="col-md-4">
-				<i class="fas fa-envelope fa-2x text-danger"></i>
-				<h4>Email</h4>
-				<a href="mailto:info@bilgiolcer.com">info@bilgiolcer.com</a>
-			</div>
-		</div>
+    <article>
+        <div class="row g-4 p-3">
+            <div class="col-md-4">
+                <i class="fas fa-phone fa-2x text-danger"></i>
+                <h4>Phone</h4>
+                <a href="tel:+90234556565">+90234556565</a>
+            </div>
+            <div class="col-md-4">
+                <i class="fab fa-whatsapp fa-3x text-danger"></i>
+                <h4>Whatsapp</h4>
+                <a href="https://wa.me/+90234556565">+90234556565</a>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-envelope fa-2x text-danger"></i>
+                <h4>Email</h4>
+                <a href="mailto:info@petpark.com">info@bilgiolcer.com</a>
+            </div>
+        </div>
 
-		<form class="row g-3" id="form-post" action="result.html" method="GET">
+        <form class="row g-3" id="form-post" action="result.html" method="GET">
 
-			<!-- USERNAME -->
-			<div class="col-md-6 input-group">
-				<!-- <label for="username">Name</label> -->
-				<input class="form-control"
-					   type="text"
-					   id="username"
-					   placeholder="İsim"
-					   name="username" />
-				<p></p>
-			</div>
-			<!-- EMAIL -->
-			<div class="col-md-6 input-group">
-				<!-- <label for="email">Email</label> -->
-				<input class="form-control"
-					   type="email"
-					   id="email"
-					   placeholder="Email"
-					   name="email" />
-				<p></p>
-			</div>
-			<!-- NUMBER -->
-			<div class="col-md-6 input-group">
-				<!-- <label for="number">Number</label> -->
-				<input class="form-control"
-					   type="number"
-					   id="number"
-					   placeholder="Telefon Numarası"
-					   name="number" />
-				<p></p>
-			</div>
-			<!-- FILE -->
-			<div class="col-md-6 input-group">
-				<!-- <label for="file">Dosya</label> -->
-				<input class="form-control"
-					   type="file"
-					   id="document"
-					   placeholder="Upload your document"
-					   name="file" />
+            <!-- USERNAME -->
+            <div class="col-md-6 input-group">
+                <!-- <label for="username">Name</label> -->
+                <input class="form-control"
+                       type="text"
+                       id="username"
+                       placeholder="İsim"
+                       name="username" />
+                <p></p>
+            </div>
+            <!-- EMAIL -->
+            <div class="col-md-6 input-group">
+                <!-- <label for="email">Email</label> -->
+                <input class="form-control"
+                       type="email"
+                       id="email"
+                       placeholder="Email"
+                       name="email" />
+                <p></p>
+            </div>
+            <!-- NUMBER -->
+            <div class="col-md-6 input-group">
+                <!-- <label for="number">Number</label> -->
+                <input class="form-control"
+                       type="number"
+                       id="number"
+                       placeholder="Telefon Numarası"
+                       name="number" />
+                <p></p>
+            </div>
+            <!-- FILE -->
+            <div class="col-md-6 input-group">
+                <!-- <label for="file">Dosya</label> -->
+                <input class="form-control"
+                       type="file"
+                       id="document"
+                       placeholder="Upload your document"
+                       name="file" />
 
-			</div>
+            </div>
+            <!-- subjecttext -->
+            <div class="col-12 input-group">
+                <!-- <label for="subject-text">Subject-text</label> -->
+                <input class="form-control"
+                       type="subject-text"
+                       id="subject-text"
+                       placeholder="Konuyu Yazabilirsiniz"
+                       name="subject-text" />
+                <p></p>
+            </div>
+            <!-- commenttext -->
+            <div class="col-12 form-floating input-group">
+                <textarea class="form-control"
+                          type="comment-text"
+                          id="comment-text"
+                          placeholder="enter your comment"
+                          name="comment-text"></textarea>
+                <p></p>
+            </div>
+            <!-- button -->
+            <div class="col-12 p-4">
+                <button type="submit" class="btn btn-danger" style="width: 7rem">
+                    Gönder
+                </button>
+            </div>
 
-			<!-- commenttext -->
-			<div class="col-12 form-floating input-group">
-				<textarea class="form-control"
-						  type="comment-text"
-						  id="comment-text"
-						  placeholder="enter your comment"
-						  name="comment-text"></textarea>
-				<p></p>
-			</div>
-			<!-- button -->
-			<div class="col-12 p-4">
-				<button type="submit" class="btn btn-danger" style="width: 7rem">
-					Mesaj Gönder
-				</button>
-			</div>
-
-		</form>
-	</article>
-
+        </form>
+    </article>
 </section>
