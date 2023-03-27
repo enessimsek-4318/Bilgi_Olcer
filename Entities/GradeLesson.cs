@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Grade
+    public class GradeLesson
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int GradeId { get; set; }
+        public Grade Grade { get; set; }
         public int LessonId { get; set; }
-        public List<GradeLesson> GradeLesson { get; set; }
+        public Lesson Lesson { get; set; }
     }
 }

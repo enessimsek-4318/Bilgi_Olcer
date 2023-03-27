@@ -4,7 +4,7 @@
 
 namespace Bilgi_Olcer_DAL.Migrations
 {
-    public partial class CreateMigration : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -124,6 +124,29 @@ namespace Bilgi_Olcer_DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Results",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    userId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TestId = table.Column<int>(type: "int", nullable: false),
+                    Correct = table.Column<int>(type: "int", nullable: false),
+                    False = table.Column<int>(type: "int", nullable: false),
+                    Empty = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Results", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Results_Tests_TestId",
+                        column: x => x.TestId,
+                        principalTable: "Tests",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
                 {
@@ -201,6 +224,11 @@ namespace Bilgi_Olcer_DAL.Migrations
                 column: "TestId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Results_TestId",
+                table: "Results",
+                column: "TestId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Subjects_LessonId",
                 table: "Subjects",
                 column: "LessonId");
@@ -218,6 +246,9 @@ namespace Bilgi_Olcer_DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Options");
+
+            migrationBuilder.DropTable(
+                name: "Results");
 
             migrationBuilder.DropTable(
                 name: "Grades");

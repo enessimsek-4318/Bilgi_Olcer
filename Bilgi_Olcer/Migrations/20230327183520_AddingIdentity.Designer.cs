@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bilgi_Olcer.Migrations
 {
     [DbContext(typeof(UserIdentityDbContext))]
-    [Migration("20230310214609_AddingIdentity")]
+    [Migration("20230327183520_AddingIdentity")]
     partial class AddingIdentity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

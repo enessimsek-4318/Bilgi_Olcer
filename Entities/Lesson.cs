@@ -13,6 +13,6 @@ namespace Entities
         public int SubjectId { get; set; }
         public List<Subject> Subject { get; set; }
         public int  GradeId { get; set; }
-        public List<Grade> Grade { get; set; }
+        public List<GradeLesson> GradeLesson { get; set; }
     }
 }

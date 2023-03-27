@@ -6,5 +6,6 @@
         public string Name { get; set; }
         public int QuestionId { get; set; }
         public List<Question> Question { get; set; }
+        public Result Result { get; set; }
     }
 }

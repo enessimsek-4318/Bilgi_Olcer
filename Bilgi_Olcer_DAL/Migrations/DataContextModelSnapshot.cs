@@ -70,6 +70,21 @@ namespace Bilgi_Olcer_DAL.Migrations
                     b.ToTable("Grades");
                 });
 
+            modelBuilder.Entity("Entities.GradeLesson", b =>
+                {
+                    b.Property<int>("GradeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LessonId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GradeId", "LessonId");
+
+                    b.HasIndex("LessonId");
+
+                    b.ToTable("GradeLesson");
+                });
+
             modelBuilder.Entity("Entities.Lesson", b =>
                 {
                     b.Property<int>("Id")
@@ -166,6 +181,37 @@ namespace Bilgi_Olcer_DAL.Migrations
                     b.ToTable("Questions");
                 });
 
+            modelBuilder.Entity("Entities.Result", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Correct")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Empty")
+                        .HasColumnType("int");
+
+                    b.Property<int>("False")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TestId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("userId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TestId");
+
+                    b.ToTable("Results");
+                });
+
             modelBuilder.Entity("Entities.Subject", b =>
                 {
                     b.Property<int>("Id")
@@ -216,26 +262,30 @@ namespace Bilgi_Olcer_DAL.Migrations
                     b.ToTable("Tests");
                 });
 
-            modelBuilder.Entity("GradeLesson", b =>
-                {
-                    b.Property<int>("GradeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("GradeId", "LessonId");
-
-                    b.HasIndex("LessonId");
-
-                    b.ToTable("GradeLesson");
-                });
-
             modelBuilder.Entity("Entities.Grade", b =>
                 {
                     b.HasOne("Entities.Exam", null)
                         .WithMany("Grade")
                         .HasForeignKey("ExamId");
+                });
+
+            modelBuilder.Entity("Entities.GradeLesson", b =>
+                {
+                    b.HasOne("Entities.Grade", "Grade")
+                        .WithMany("GradeLesson")
+                        .HasForeignKey("GradeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Lesson", "Lesson")
+                        .WithMany("GradeLesson")
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Grade");
+
+                    b.Navigation("Lesson");
                 });
 
             modelBuilder.Entity("Entities.Option", b =>
@@ -264,6 +314,17 @@ namespace Bilgi_Olcer_DAL.Migrations
                     b.Navigation("Subject");
                 });
 
+            modelBuilder.Entity("Entities.Result", b =>
+                {
+                    b.HasOne("Entities.Test", "Test")
+                        .WithMany()
+                        .HasForeignKey("TestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Test");
+                });
+
             modelBuilder.Entity("Entities.Subject", b =>
                 {
                     b.HasOne("Entities.Lesson", "Lesson")
@@ -282,21 +343,6 @@ namespace Bilgi_Olcer_DAL.Migrations
                         .HasForeignKey("ExamId");
                 });
 
-            modelBuilder.Entity("GradeLesson", b =>
-                {
-                    b.HasOne("Entities.Grade", null)
-                        .WithMany()
-                        .HasForeignKey("GradeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Lesson", null)
-                        .WithMany()
-                        .HasForeignKey("LessonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Entities.Exam", b =>
                 {
                     b.Navigation("Grade");
@@ -304,8 +350,15 @@ namespace Bilgi_Olcer_DAL.Migrations
                     b.Navigation("Test");
                 });
 
+            modelBuilder.Entity("Entities.Grade", b =>
+                {
+                    b.Navigation("GradeLesson");
+                });
+
             modelBuilder.Entity("Entities.Lesson", b =>
                 {
+                    b.Navigation("GradeLesson");
+
                     b.Navigation("Subject");
                 });
 
