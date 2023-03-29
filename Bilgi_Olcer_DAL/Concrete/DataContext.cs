@@ -14,18 +14,9 @@ namespace Bilgi_Olcer_DAL.Concrete
         {
             optionsBuilder.UseSqlServer("Data Source=DESKTOP-UVMSNSF;Initial Catalog=Bilgi_Olcer;Integrated Security=True");
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<GradeLesson>()
-                        .HasKey(c => new { c.GradeId, c.LessonId });
-        }
-        public DbSet<Exam> Exams { get; set; }
-        public DbSet<Grade> Grades { get; set; }
-        public DbSet<Lesson> Lessons { get; set; }
-        public DbSet<Option> Options { get; set; }
+ 
+
         public DbSet<Question> Questions { get; set; }
-        public DbSet<Subject> Subjects { get; set; }
-        public DbSet<Test> Tests { get; set; }
         public DbSet<Result> Results { get; set; }
 
     }
