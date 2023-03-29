@@ -158,8 +158,7 @@ namespace Bilgi_Olcer_DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Image")
-                        .IsRequired()
+                    b.Property<string>("Image")                        
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("QText")

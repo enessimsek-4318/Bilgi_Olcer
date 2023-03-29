@@ -1,4 +1,5 @@
 using Bilgi_Olcer.Identity;
+using Bilgi_Olcer_DAL.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -76,5 +77,5 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
 });
 
-
+SeedData.Seed();
 app.Run();
