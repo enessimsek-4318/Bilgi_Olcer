@@ -1,4 +1,6 @@
-﻿<link rel="stylesheet" href="~/css/IndexStyle.css" />    
+﻿@model List<ClassModel>
+
+<link rel="stylesheet" href="~/css/IndexStyle.css" />    
 <!--2- CAROUSEL -->
     <partial name="_carousel"/>
 
@@ -7,85 +9,29 @@
     <h2 class="display-6 text-primary">Sınıflar</h2>
     <div id="dog" class="card-deck">
         <div class="row">
-            <div class="card mb-2 col-md-12 col-lg-6">
-                <a href="/Home/Grade" class="card-body d-inline-flex">
-                    <img class="card-img-top"
-                         src="~/img/9-Sinif.jpg"
+            @foreach (var item in Model)
+            {
+                <div class="card mb-2 col-md-12 col-lg-6">
+                    <a asp-controller="Class" asp-action="Test" asp-route-id="@item.Id"class="card-body d-inline-flex">
+                        <img class="card-img-top"
+                         src="~/img/@item.Id-Sinif.jpg"
                          alt="Card image cap" />
-                    <div class="p-2">
-                        <h5 class="card-title">9.Sınıf</h5>
-                        <ul>
-                            <li>
-                                <p class="text-decoration-none">TYT Sınavları</p>
-                            </li>
-                            <li>
-                                <p class="text-decoration-none">Testler</p>
-                            </li>
-                            <li><p class="text-decoration-none">Sınav Takvimi</p></li>
-                        </ul>
-                    </div>
-                </a>
-            </div>
-            <div id="cat" class="card mb-2 col-md-12 col-lg-6">
-                <a href="/Home/Grade" class="card-body d-inline-flex">
-                    <img class="card-img-top"
-                         src="~/img/10-Sinif.jpg"
-                         alt="Card image cap" />
-                    <div class="p-2">
-                        <h5 class="card-title">10.Sınıf</h5>
-                        <ul>
-                            <li>
-                                <p class="text-decoration-none">TYT Sınavları</p>
-                            </li>
-                            <li>
-                                <p class="text-decoration-none">Testler</p>
-                            </li>
-                            <li><p class="text-decoration-none">Sınav Takvimi</p></li>
-                        </ul>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="row">
-            <div id="fish" class="card mb-2 col-md-12 col-lg-6">
-                <div class="card-body d-inline-flex">
-                    <img class="card-img-top"
-                         src="~/img/11-Sinif.jpg"
-                         alt="Card image cap" />
-                    <div class="p-2">
-                        <h5 class="card-title">11.Sınıf</h5>
-                        <ul>
-                            <li><p class="text-decoration-none">TYT Sınavları</p></li>
-                            <li><p class="text-decoration-none">AYT Sınavları</p></li>
-                            <li>
-                                <p class="text-decoration-none">Testler</a>
-                            </li>
-                        </ul>
-                    </div>
+                        <div class="p-2">
+                            <h5 class="card-title">@item.Name</h5>
+                            <ul>
+                                <li>
+                                    <p class="text-decoration-none">TYT Sınavları</p>
+                                </li>
+                                <li>
+                                    <p class="text-decoration-none">Testler</p>
+                                </li>
+                                <li><p class="text-decoration-none">Sınav Takvimi</p></li>
+                            </ul>
+                        </div>
+                    </a>
                 </div>
-            </div>
-
-
-            <div id="bird" class="card mb-2 col-md-12 col-lg-6">
-                <a href="/Home/Grade" class="card-body d-inline-flex">
-                    <img class="card-img-top"
-                         src="~/img/12-Sinif.jpg"
-                         alt="Card image cap" />
-                    <div class="p-2">
-                        <h5 class="card-title">12.Sınıf</h5>
-                        <ul>
-                            <li><p class="text-decoration-none">TYT Sınavları</p></li>
-                            <li>
-                                <p class="text-decoration-none">AYT Sınavları</p>
-                            </li>
-                            <li><p class="text-decoration-none">Testler</p></li>
-                        </ul>
-                    </div>
-                </a>
-            </div>
+            }
         </div>
-
     </div>
 </section>
 
