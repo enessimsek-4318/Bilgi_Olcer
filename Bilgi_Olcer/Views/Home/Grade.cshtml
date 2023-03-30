@@ -1,57 +1,56 @@
 ﻿@model ClassModel
-      <!--3- Grades -->
-    <section id="pets" class="container bg-light p-2">
-      <div id="dog" class="card-deck">
-        <div class="row">
-          <div class="card mb-2 col-md-12 col-lg-6">
-            <a href="#" class="card-body d-inline-flex">
-              <img
-                class="card-img-top rounded-circle"
-                src="~/img/tyt.png"
-                alt="Card image cap"
-              />
-              @if (Model.Id==9 || Model.Id==10)
-              {
-                    <div class="p-2">
-                        <h5 class="card-title">TYT Denemeleri</h5>
-                    </div>
-              }
-              else{
-                    <div class="p-2">
-                        <h5 class="card-title">AYT Denemeleri</h5>
-                    </div>
-              }
-              
-            </a>
-          </div>
-          <div id="cat" class="card mb-2 col-md-12 col-lg-6">
-            <a href="/Class/Test" class="card-body d-inline-flex">
-              <img
-                class="card-img-top rounded-circle"
-                src="~/img/test.jpg"
-                alt="Card image cap"
-              />
-              <div class="p-2">
-                <h5 class="card-title">@Model.Id. Sınıf Testleri</h5>
-              </div>
-            </a>
-          </div>
-        </div>
+<!--3- Grades -->
+<section id="pets" class="container bg-light p-2">
+	<div id="dog" class="card-deck">
+		<div class="row">
+			<div class="card mb-2 col-md-12 col-lg-6">
+				@if (Model.Id == 9 || Model.Id == 10)
+				{
+					<a href="#" class="card-body d-inline-flex">
+						<img class="card-img-top rounded-circle"
+						 src="~/img/tyt.png"
+						 alt="Card image cap" />
+						<div class="p-2">
+							<h5 class="card-title">TYT Denemeleri</h5>
+						</div>
+					</a>
+				}
+				else
+				{
+					<a href="#" class="card-body d-inline-flex">
+						<img class="card-img-top rounded-circle"
+						 src="~/img/ayt.jpg"
+						 alt="Card image cap" />
+						<div class="p-2">
+							<h5 class="card-title">AYT Denemeleri</h5>
+						</div>
+					</a>
+				}
+			</div>
+			<div id="cat" class="card mb-2 col-md-12 col-lg-6">
+				<a asp-controller="Class" asp-action="Test" asp-route-id="@Model.Id" class="card-body d-inline-flex">
+					<img class="card-img-top rounded-circle"
+						 src="~/img/test.jpg"
+						 alt="Card image cap" />
+					<div class="p-2">
+						<h5 class="card-title">@Model.Id. Sınıf Testleri</h5>
+					</div>
+				</a>
+			</div>
+		</div>
 
-          <div class="row">
-          <div id="bird" class="card mb-2 col-md-12">
-            <a href="#" class="card-body d-inline-flex">
-              <img
-                class="card-img-top rounded-circle"
-                src="~/img/calendar.png"
-                alt="Card image cap"
-              />
-              <div class="p-2">
-                <h5 class="card-title">Sınav Takvimi</h5>
-              </div>
-            </a>
-          </div>
-          </div>
-          
-      </div>
-    </section>
+		<div class="row">
+			<div id="bird" class="card mb-2 col-md-12">
+				<a href="#" class="card-body d-inline-flex">
+					<img class="card-img-top rounded-circle"
+						 src="~/img/calendar.png"
+						 alt="Card image cap" />
+					<div class="p-2">
+						<h5 class="card-title">Sınav Takvimi</h5>
+					</div>
+				</a>
+			</div>
+		</div>
+
+	</div>
+</section>
