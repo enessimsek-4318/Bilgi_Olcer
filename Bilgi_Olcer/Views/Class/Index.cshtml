@@ -8,18 +8,12 @@
 					<div class="p-2">
 						<h5 class="card-title">Dersler</h5>
 						<hr>
-						<label for="bölüm">Bölümler:</label>
-						<select class="option-box" id="cars">
-							<option value="sayisal">Sayısal</option>
-							<option value="sozel">Sözel</option>
-							<option value="Esit_Agirlik">Eşit Ağırlık</option>
-						</select>
-						<hr>
+						
 						<div class="dersler">
 							<ul>
 								@foreach (var item in Model)
 								{
-									<a asp-controller="Home" asp-action="Grade" asp-route-id="@item.Name" class="card-body d-inline-flex">
+									<a asp-controller="Class" asp-action="Subject" asp-route-id="@item.Id" class="card-body">
 									<li>@item.Name</li>
 									</a>
 								}
