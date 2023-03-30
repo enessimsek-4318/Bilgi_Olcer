@@ -1,4 +1,7 @@
 using Bilgi_Olcer.Identity;
+using Bilgi_Olcer_BLL.Absract;
+using Bilgi_Olcer_BLL.Concrete;
+using Bilgi_Olcer_DAL.Abstract;
 using Bilgi_Olcer_DAL.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -17,6 +20,10 @@ builder.Services.AddIdentity<User, IdentityRole>()
     .AddDefaultTokenProviders();
 var userManager = builder.Services.BuildServiceProvider().GetService<UserManager<User>>();
 var roleManager = builder.Services.BuildServiceProvider().GetService<RoleManager<IdentityRole>>();
+
+builder.Services.AddScoped<IQuestionDal, QuestionDal>();
+builder.Services.AddScoped<IQuestionService, QuestionManager>();
+
 builder.Services.Configure<IdentityOptions>(options =>
 {
     //password
@@ -76,5 +83,5 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
 });
-
+SeedDatabase.Seed();
 app.Run();
