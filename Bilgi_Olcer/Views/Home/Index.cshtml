@@ -12,7 +12,7 @@
             @foreach (var item in Model)
             {
                 <div class="card mb-2 col-md-12 col-lg-6">
-                    <a asp-controller="Class" asp-action="Test" asp-route-id="@item.Id"class="card-body d-inline-flex">
+                    <a asp-controller="Home" asp-action="Grade" asp-route-id="@item.Id"class="card-body d-inline-flex">
                         <img class="card-img-top"
                          src="~/img/@item.Id-Sinif.jpg"
                          alt="Card image cap" />

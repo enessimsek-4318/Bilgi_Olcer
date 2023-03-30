@@ -1,4 +1,4 @@
-﻿
+﻿@model ClassModel
       <!--3- Grades -->
     <section id="pets" class="container bg-light p-2">
       <div id="dog" class="card-deck">
@@ -10,9 +10,18 @@
                 src="~/img/tyt.png"
                 alt="Card image cap"
               />
-              <div class="p-2">
-                <h5 class="card-title">AYT Denemeleri</h5>
-              </div>
+              @if (Model.Id==9 || Model.Id==10)
+              {
+                    <div class="p-2">
+                        <h5 class="card-title">TYT Denemeleri</h5>
+                    </div>
+              }
+              else{
+                    <div class="p-2">
+                        <h5 class="card-title">AYT Denemeleri</h5>
+                    </div>
+              }
+              
             </a>
           </div>
           <div id="cat" class="card mb-2 col-md-12 col-lg-6">
@@ -23,7 +32,7 @@
                 alt="Card image cap"
               />
               <div class="p-2">
-                <h5 class="card-title">Testler</h5>
+                <h5 class="card-title">@Model.Id. Sınıf Testleri</h5>
               </div>
             </a>
           </div>

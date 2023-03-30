@@ -9,11 +9,10 @@ namespace Bilgi_Olcer.Controllers
         {
             List<ClassModel> Classes = new List<ClassModel>()
             {
-                new ClassModel(){Id=9,Name="9.Sınıf",PhotoUrl="~/img/9-Sinif.jpg"},
-                new ClassModel(){Id=10,Name="10.Sınıf",PhotoUrl="~/img/10-Sinif.jpg"},
-                new ClassModel(){Id=11,Name="11.Sınıf",PhotoUrl="~/img/11-Sinif.jpg"},
-                new ClassModel(){Id=12,Name="12.Sınıf",PhotoUrl="~/img/12-Sinif.jpg"},
-
+                new ClassModel(){Id=9,Name="9.Sınıf"},
+                new ClassModel(){Id=10,Name="10.Sınıf"},
+                new ClassModel(){Id=11,Name="11.Sınıf"},
+                new ClassModel(){Id=12,Name="12.Sınıf"},
             };
             return View(Classes);
         }
@@ -25,10 +24,10 @@ namespace Bilgi_Olcer.Controllers
         {
             return View();
         }
-        public IActionResult Grade()
+        public IActionResult Grade(ClassModel model)
         {
             
-            return View();
+            return View(model);
         }
 
 
