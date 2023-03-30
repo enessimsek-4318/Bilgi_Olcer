@@ -1,8 +1,8 @@
 ﻿namespace Bilgi_Olcer.Models
 {
-    public class ClassModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
+	public class ClassModel
+	{
+		public string Name { get; set; }
+
+	}
 }

@@ -7,12 +7,12 @@ namespace Bilgi_Olcer.Controllers
     {
         public IActionResult Index()
         {
-            List<ClassModel> Classes = new List<ClassModel>()
+            List<GradeModel> Classes = new List<GradeModel>()
             {
-                new ClassModel(){Id=9,Name="9.Sınıf"},
-                new ClassModel(){Id=10,Name="10.Sınıf"},
-                new ClassModel(){Id=11,Name="11.Sınıf"},
-                new ClassModel(){Id=12,Name="12.Sınıf"},
+                new GradeModel(){Id=9,Name="9.Sınıf"},
+                new GradeModel(){Id=10,Name="10.Sınıf"},
+                new GradeModel(){Id=11,Name="11.Sınıf"},
+                new GradeModel(){Id=12,Name="12.Sınıf"},
             };
             return View(Classes);
         }
@@ -24,7 +24,7 @@ namespace Bilgi_Olcer.Controllers
         {
             return View();
         }
-        public IActionResult Grade(ClassModel model)
+        public IActionResult Grade(GradeModel model)
         {
             
             return View(model);

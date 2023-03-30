@@ -1,4 +1,4 @@
-﻿@model ClassModel
+﻿@model GradeModel
 <!--3- Grades -->
 <section id="pets" class="container bg-light p-2">
 	<div id="dog" class="card-deck">
@@ -28,7 +28,7 @@
 				}
 			</div>
 			<div id="cat" class="card mb-2 col-md-12 col-lg-6">
-				<a asp-controller="Class" asp-action="Test" asp-route-id="@Model.Id" class="card-body d-inline-flex">
+				<a asp-controller="Class" asp-action="Index" asp-route-id="@Model.Id" class="card-body d-inline-flex">
 					<img class="card-img-top rounded-circle"
 						 src="~/img/test.jpg"
 						 alt="Card image cap" />
