@@ -1,4 +1,4 @@
-﻿@model List<ClassModel>
+﻿@model  List<Question>
 <!--2- LESSONS-TESTS -->
 <section id="pets" class="container bg-light p-2">
 	<div id="dog" class="card-deck">
@@ -7,14 +7,13 @@
 				<div class="card-body d-inline-flex">
 					<div class="p-2">
 						<h5 class="card-title">Dersler</h5>
-						<hr>
-						
+						<hr>						
 						<div class="dersler">
 							<ul>
 								@foreach (var item in Model)
 								{
 									<a asp-controller="Class" asp-action="Subject" asp-route-id="@item.Id" class="card-body">
-									<li>@item.Name</li>
+									<li>@item.Lesson</li>
 									</a>
 								}
 							</ul>
@@ -27,6 +26,16 @@
 					<div class="p-2">
 						<h5 class="card-title">Konular</h5>
 						<hr>
+						<div class="konular">
+							<ul>
+								@foreach (var item in Model)
+								{
+									<a asp-controller="#" asp-action="#" asp-route-id="@*@item.Id*@" class="card-body">
+									<li>@item.Subject</li>
+									</a>
+								}
+							</ul>
+						</div>
 						<div class="popup" onclick="myFunction()">
 							Click me!
 							<span class="popuptext" id="myPopup">Popup text...</span>
