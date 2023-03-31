@@ -12,7 +12,7 @@
 							<ul>
 								@foreach (var item in Model)
 								{
-									<a asp-controller="Class" asp-action="Subject" asp-route-id="@item.Id" class="card-body">
+									<a href="#" class="card-body">
 									<li>@item.Lesson</li>
 									</a>
 								}
@@ -30,9 +30,7 @@
 							<ul>
 								@foreach (var item in Model)
 								{
-									<a asp-controller="#" asp-action="#" asp-route-id="@*@item.Id*@" class="card-body">
-									<li>@item.Subject</li>
-									</a>
+									<li class="@item.Lesson" href=""><a href="#">@item.Subject</a></li>									
 								}
 							</ul>
 						</div>
@@ -47,3 +45,4 @@
 
 	</div>
 </section>
+<script src="~/js/subjectFilter.js"></script>
