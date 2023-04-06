@@ -1,7 +1,138 @@
-﻿@model QestionModel
-@{
-    ViewData["Title"] = "Test";
-}
+﻿@model Question
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="shortcut icon"
+          href="./img/BilgiÖlçer-icon.png"
+          type="image/x-icon" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/Test.css">
+    <title>BilgiÖlçer | Test</title>
+</head>
+<body>
 
-<h1>Test</h1>
+    <!--1- NAVBAR -->
+    <nav class="navbar navbar-light justify-content-between">
+        <h1 class="navbar-brand h1">Quiz Time</h1>
+        <form class="form-inline">
+            <button class="btn btn-outline-success my-2 my-sm-0" asp-controller="Home" asp-action="Index" type="submit">Testi Bitir</button>
+        </form>
+        <p><i class="fa-solid fa-user"></i> <span>Simmy</span></p>
+    </nav>
 
+    <!--2- SIDE BAR -->
+    <div class="w3-sidebar w3-bar-block w3-collapse w3-card" style="width:200px;" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-hide-large"
+                onclick="w3_close()">
+            Kapat &times;
+        </button>
+        <a href="#" class="w3-bar-item w3-button m-3">Dashboard</a>
+        <a href="#" class="w3-bar-item w3-button m-3">Destek</a>
+        <a href="#" class="w3-bar-item w3-button m-3">Bildirim</a>
+    </div>
+
+    <div class="w3-main" style="margin-left:200px">
+
+        <div class="w3-teal">
+            <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+        </div>
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+
+    <!--3- QUESTİONS -->
+    <div class="area row">
+        <div class="space col-sm-12 col-md-2 col-lg-4">
+        </div>
+
+        <div class="questionarea col-sm-12 col-md-10 col-lg-8">
+            <div class="baslik">
+                <div>
+                    <h1>Tarih Testi</h1>
+                    <p>Aşağıdaki soruyu cevaplayınız.</p>
+                </div>
+
+                <div>
+                    <h1>Süre : 29.09 Dk.</h1>
+                </div>
+            </div>
+
+            <div class="soru">
+                <div class="soruresmi">
+                    <img src="../img/iosman.jpg" alt="iosman">
+                </div>
+                <div class="q1">
+                    <h3>Question 1/20</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero obcaecati ab, praesentium, odio eum animi, harum omnis debitis modi corrupti saepe officiis soluta reprehenderit officia sequi dignissimos. Quis, harum aspernatur.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="secenek">
+            <h3>Cevabı İşaretleyiniz</h3>
+
+            <form action="post">
+                <p>
+                    <input type="checkbox" id="test1" />
+                    <label for="test1" class="sorular">Enes çok sıkıntılı bir elemandır</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="test2" />
+                    <label for="test2" class="sorular">Enes bazı hatalarından vazgeçemez</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="test3" />
+                    <label for="test3" class="sorular">Cüneyt erkek gibi erkektir</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="test4" />
+                    <label for="test4" class="sorular">Cüneyt eski askerdir</label>
+                </p>
+                </p>
+                <p>
+                    <input type="checkbox" id="test5" />
+                    <label for="test5" class="sorular">Enes has bir Kayserilidir</label>
+                </p>
+            </form>
+
+            <p class="txtcenter">
+                <a class="btn" href="/">İlerle</a>
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        // When the user clicks on <div>, open the popup
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>
+</html>

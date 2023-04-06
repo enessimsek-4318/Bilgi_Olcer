@@ -30,7 +30,7 @@
 							<ul>
 								@foreach (var item in Model)
 								{
-									<li class="@item.Lesson" href=""><a href="#">@item.Subject</a></li>									
+									<li class="@item.Lesson"><a asp-controller="Class" asp-action="Test" asp-route-data="@item.Subject" >@item.Subject</a></li>									
 								}
 							</ul>
 						</div>
