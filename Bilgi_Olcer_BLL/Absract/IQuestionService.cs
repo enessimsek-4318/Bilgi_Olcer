@@ -11,7 +11,7 @@ namespace Bilgi_Olcer_BLL.Absract
     public interface IQuestionService
     {
         List<Question> GetAll(Expression<Func<Question, bool>> filter = null);
-        List<Question> GetAllSubject(int Id);
+        List<Question> GetSubject(int Id);
 
     }
 }

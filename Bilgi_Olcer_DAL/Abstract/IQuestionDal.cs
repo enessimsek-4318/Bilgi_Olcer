@@ -9,6 +9,6 @@ namespace Bilgi_Olcer_DAL.Abstract
 {
     public interface IQuestionDal:IGenericRepository<Question>
     {
-        List<Question> GetAllSubject(int id);
+        List<Question> GetSubject(int id);
     }
 }

@@ -23,9 +23,9 @@ namespace Bilgi_Olcer_BLL.Concrete
             return _questionDal.GetAll(filter).ToList();
         }
 
-        public List<Question> GetAllSubject(int Id)
+        public List<Question> GetSubject(int Id)
         {
-            return _questionDal.GetAllSubject(Id);
+            return _questionDal.GetSubject(Id);
         }
     }
 }

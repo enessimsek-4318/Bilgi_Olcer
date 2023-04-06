@@ -31,7 +31,7 @@ namespace Bilgi_Olcer_DAL.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Question> GetAllSubject(int id)
+        public List<Question> GetSubject(int id)
         {
             using (var context=new DataContext())
             {

@@ -16,7 +16,7 @@ namespace Bilgi_Olcer.Controllers
 
         public IActionResult Index(GradeModel model)
         {
-            List<Question> subject=_questionService.GetAllSubject(model.Id);
+            List<Question> subject=_questionService.GetSubject(model.Id);
 
             List<ClassModel> classes = new List<ClassModel>()
             {
