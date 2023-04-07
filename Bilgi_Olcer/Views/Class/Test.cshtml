@@ -96,25 +96,26 @@
 				<h3>Cevabı İşaretleyiniz</h3>
 				<form action="post">
 					<p>
-						<input type="checkbox" id="test1" />
-						<label for="test1" class="sorular">@question.OptionA</label>
+						<input type="radio" id="optionA" name="option" />
+						<label for="optionA" class="sorular">@question.OptionA</label>
 					</p>
 					<p>
-						<input type="checkbox" id="test2" />
-						<label for="test2" class="sorular">@question.OptionB</label>
+						<input type="radio" id="optionB" name="option" />
+						<label for="optionB" class="sorular">@question.OptionB</label>
 					</p>
 					<p>
-						<input type="checkbox" id="test3" />
-						<label for="test3" class="sorular">@question.OptionC</label>
+						<input type="radio" id="optionC" name="option" />
+						<label for="optionC" class="sorular">@question.OptionC</label>
 					</p>
 					<p>
-						<input type="checkbox" id="test4" />
-						<label for="test4" class="sorular">@question.OptionD</label>
+						<input type="radio" id="optionD" name="option" />
+						<label for="optionD" class="sorular">@question.OptionD</label>
 					</p>
 					<p>
-						<input type="checkbox" id="test5" />
-						<label for="test5" class="sorular">@question.OptionE</label>
+						<input type="radio" id="optionE" name="option" />
+						<label for="optionE" class="sorular">@question.OptionE</label>
 					</p>
+					<input type="hidden" id="answer" value="@question.Answer"/>
 				</form>
 
 				<p class="txtcenter">
