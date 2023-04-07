@@ -96,30 +96,30 @@
 				<h3>Cevabı İşaretleyiniz</h3>
 				<form action="post">
 					<p>
-						<input type="radio" id="optionA" name="option" />
+						<input type="radio" id="optionA" name="option" value="@question.OptionA" />
 						<label for="optionA" class="sorular">@question.OptionA</label>
 					</p>
 					<p>
-						<input type="radio" id="optionB" name="option" />
+						<input type="radio" id="optionB" name="option" value="@question.OptionB" />
 						<label for="optionB" class="sorular">@question.OptionB</label>
 					</p>
 					<p>
-						<input type="radio" id="optionC" name="option" />
+						<input type="radio" id="optionC" name="option" value="@question.OptionC" />
 						<label for="optionC" class="sorular">@question.OptionC</label>
 					</p>
 					<p>
-						<input type="radio" id="optionD" name="option" />
+						<input type="radio" id="optionD" name="option" value="@question.OptionD" />
 						<label for="optionD" class="sorular">@question.OptionD</label>
 					</p>
 					<p>
-						<input type="radio" id="optionE" name="option" />
+						<input type="radio" id="optionE" name="option" value="@question.OptionE" />
 						<label for="optionE" class="sorular">@question.OptionE</label>
 					</p>
 					<input type="hidden" id="answer" value="@question.Answer"/>
 				</form>
 
 				<p class="txtcenter">
-					<a class="btn" href="/">İlerle</a>
+					<a class="btn" id="submit" href="/">İlerle</a>
 				</p>
 
 			</div>
@@ -139,6 +139,7 @@
 			popup.classList.toggle("show");
 		}
 	</script>
+	<script src="~/js/AnswerControl.js"></script>
 </body>
 </html>
 </html>
