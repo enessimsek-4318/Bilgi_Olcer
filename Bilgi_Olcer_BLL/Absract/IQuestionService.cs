@@ -12,6 +12,7 @@ namespace Bilgi_Olcer_BLL.Absract
     {
         List<Question> GetAll(Expression<Func<Question, bool>> filter = null);
         List<Question> GetSubject(int Id);
+        List<Question> GetQuestion(string subject);
 
     }
 }

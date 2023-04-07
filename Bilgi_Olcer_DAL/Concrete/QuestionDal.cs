@@ -48,5 +48,13 @@ namespace Bilgi_Olcer_DAL.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public List<Question> GetQuestion(string subject)
+        {
+            using (var context=new DataContext())
+            {
+                return context.Questions.Where(i => i.Subject == subject).ToList();
+            }
+        }
     }
 }

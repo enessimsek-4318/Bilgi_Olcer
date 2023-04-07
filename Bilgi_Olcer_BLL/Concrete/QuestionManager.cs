@@ -23,6 +23,11 @@ namespace Bilgi_Olcer_BLL.Concrete
             return _questionDal.GetAll(filter).ToList();
         }
 
+        public List<Question> GetQuestion(string subject)
+        {
+            return _questionDal.GetQuestion(subject);
+        }
+
         public List<Question> GetSubject(int Id)
         {
             return _questionDal.GetSubject(Id);

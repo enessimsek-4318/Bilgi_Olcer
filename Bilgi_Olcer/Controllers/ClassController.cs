@@ -30,43 +30,10 @@ namespace Bilgi_Olcer.Controllers
         [HttpGet]
         public IActionResult Test(string data)
         {
-            // Seçilen Konuya uygun olarak gelen soruları ekrana taşımamız gereklidir.
-            //switch (id)
-            //{
-            //    case 1:
-            //        //_questionService.GetAll();
-            //        // code block
-            //        break;
-            //    case 2:
-            //        // code block
-            //        break;
-            //    case 3:
-            //        // code block
-            //        break;
-            //    case 4:
-            //        // code block
-            //        break;
-            //    case 5:
-            //        // code block
-            //        break;
-            //    case 6:
-            //        // code block
-            //        break;
-            //    case 7:
-            //        // code block
-            //        break;
-            //    case 8:
-            //        // code block
-            //        break;
-            //    case 9:
-            //        // code block
-            //        break;
-            //    default:
-            //        // code block
-            //        break;
-            //}
             
-            return View();
+            List<Question> questions = _questionService.GetQuestion(data);
+
+            return View(questions);
         }
         //[HttpPost]
         //public IActionResult Test()

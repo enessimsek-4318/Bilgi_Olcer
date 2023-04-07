@@ -10,5 +10,6 @@ namespace Bilgi_Olcer_DAL.Abstract
     public interface IQuestionDal:IGenericRepository<Question>
     {
         List<Question> GetSubject(int id);
+        List<Question> GetQuestion(string subject);
     }
 }
