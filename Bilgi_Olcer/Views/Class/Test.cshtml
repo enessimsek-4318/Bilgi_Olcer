@@ -1,4 +1,5 @@
 ﻿@model List<Question>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,14 +68,12 @@
 		@{
 			int counter = 1;
 		}
-		@*bu kısıma bir for döngüsü yazacağım.
-		ve kaçıncı indexte olduğunu bir değişkende tutup ileri tuşu ile soru index' ini artıracağım.*@
-		@foreach (var question in Model)
+		@for (int i = 0; i < Model.Count; i++)
 		{
 			<div class="questionarea col-sm-12 col-md-10 col-lg-8">
 				<div class="baslik">
 					<div>
-						<h1>@question.Subject</h1>
+						<h1>@Model[i].Subject</h1>
 						<p>Aşağıdaki soruyu cevaplayınız.</p>
 					</div>
 
@@ -85,11 +84,11 @@
 
 				<div class="soru">
 					<div class="soruresmi">
-						<img src="@question.PhotoUrl" alt="photo">
+						<img src="@Model[i].PhotoUrl" alt="photo">
 					</div>
 					<div class="q1">
 						<h3>Question @counter/@Model.Count</h3>
-						<p>@question.Text</p>
+						<p>@Model[i].Text</p>
 					</div>
 				</div>
 			</div>
@@ -98,38 +97,34 @@
 				<h3>Cevabı İşaretleyiniz</h3>
 				<form action="post">
 					<p>
-						<input type="radio" id="optionA" name="option" value="@question.OptionA" />
-						<label for="optionA" class="sorular">@question.OptionA</label>
+						<input type="radio" id="optionA" name="option" value="@Model[i].OptionA" />
+						<label for="optionA" class="sorular">@Model[i].OptionA</label>
 					</p>
 					<p>
-						<input type="radio" id="optionB" name="option" value="@question.OptionB" />
-						<label for="optionB" class="sorular">@question.OptionB</label>
+						<input type="radio" id="optionB" name="option" value="@Model[i].OptionB" />
+						<label for="optionB" class="sorular">@Model[i].OptionB</label>
 					</p>
 					<p>
-						<input type="radio" id="optionC" name="option" value="@question.OptionC" />
-						<label for="optionC" class="sorular">@question.OptionC</label>
+						<input type="radio" id="optionC" name="option" value="@Model[i].OptionC" />
+						<label for="optionC" class="sorular">@Model[i].OptionC</label>
 					</p>
 					<p>
-						<input type="radio" id="optionD" name="option" value="@question.OptionD" />
-						<label for="optionD" class="sorular">@question.OptionD</label>
+						<input type="radio" id="optionD" name="option" value="@Model[i].OptionD" />
+						<label for="optionD" class="sorular">@Model[i].OptionD</label>
 					</p>
 					<p>
-						<input type="radio" id="optionE" name="option" value="@question.OptionE" />
-						<label for="optionE" class="sorular">@question.OptionE</label>
+						<input type="radio" id="optionE" name="option" value="@Model[i].OptionE" />
+						<label for="optionE" class="sorular">@Model[i].OptionE</label>
 					</p>
-					<input type="hidden" id="answer" value="@question.Answer"/>
+					<input type="hidden" id="answer" value="@Model[i].Answer" />
 				</form>
 
 				<p class="txtcenter">
-					<a class="btn" id="submit" href="/">İlerle</a>
+					<a class="btn" id="submit">Cevapla</a>
 				</p>
 
 			</div>
-			counter++;
 		}
-
-
-
 	</div>
 
 

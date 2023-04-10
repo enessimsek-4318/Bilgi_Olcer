@@ -35,11 +35,11 @@ namespace Bilgi_Olcer.Controllers
 
             return View(questions);
         }
-        //[HttpPost]
-        //public IActionResult Test()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult Test(int a, int b, int c)
+        {
+            return View();
+        }
 
     }
 }
