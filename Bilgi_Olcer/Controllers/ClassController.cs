@@ -36,7 +36,7 @@ namespace Bilgi_Olcer.Controllers
             return View(questions);
         }
         [HttpPost]
-        public IActionResult Test(int a, int b, int c)
+        public IActionResult Test(int correctAnswer, int falseAnswer, int emptyAnswer)
         {
             return View();
         }

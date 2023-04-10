@@ -37,11 +37,10 @@ document.getElementById('submit').onclick = function () {
         }
     }
 };
-$.ajax({
-    method: "POST",
-    url: "/Class/Test/",
-    data: { "correctAnswer": correctAnswer, "falseAnswer": falseAnswer,"emptyAnswer":emptyAnswer }
-})
+
+
+
+
 
 
 
