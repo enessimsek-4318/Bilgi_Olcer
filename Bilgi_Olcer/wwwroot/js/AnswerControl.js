@@ -21,6 +21,7 @@ document.getElementById('submit').onclick = function () {
     //-----------------------------------------------
     var value = document.getElementsByName('option');
     //-----------------------------------------------
+    
     for (var radio of value) {
         if (radio.checked) {
             //alert(radio.value)
@@ -28,15 +29,23 @@ document.getElementById('submit').onclick = function () {
                 //alert("correct");
                 correctAnswer++;
             } else {
-                falseAnswer++;
-                //alert("false");
+                //falseAnswer++;
+                alert("false");
             }
         } else {
-            emptyAnswer++;
-            //alert("empty");
+            //emptyAnswer++;
+            alert("empty");
         }
     }
 };
+
+
+
+const btn_finish = document.querySelector("#btn-finish");
+btn_finish.addEventListener("click", function () {
+    alert("bitirme butonu tıklandı.");
+});
+
 
 
 

@@ -22,13 +22,13 @@
 	<link rel="stylesheet" href="~/css/Test.css">
 	<title>BilgiÖlçer | Test</title>
 </head>
-<body>
+<body> 
 
 	<!--1- NAVBAR -->
 	<nav class="navbar navbar-light justify-content-between">
 		<h1 class="navbar-brand h1">Quiz Time</h1>
 		<form class="form-inline">
-			<button class="btn btn-outline-success my-2 my-sm-0" id="finish" asp-controller="Home" asp-action="Index" type="submit">Testi Bitir</button>
+			<button class="btn btn-outline-success my-2 my-sm-0" id="btn-finish" type="submit">Testi Bitir</button>
 		</form>
 		<p><i class="fa-solid fa-user"></i> <span>Simmy</span></p>
 	</nav>
@@ -136,24 +136,15 @@
 			popup.classList.toggle("show");
 		}
 	</script>
+
 	<script src="~/js/AnswerControl.js"></script>
-	<script >
-		document.getElementById('finish').onclick = function () {
-			const dialog_res = confirm("Testi Bitirmek İstediğinize Emin misiniz?");
-			if (dialog_res) {
-				//-----------------------------------------------
-				console.log("enes");
-				//-----------------------------------------------
-				alert("tıklandı")
-				//-----------------------------------------------
-				$.ajax({
-					method: "POST",
-					url: "/Class/Test/",
-					data: { "correctAnswer": correctAnswer, "falseAnswer": falseAnswer, "emptyAnswer": emptyAnswer }
-				})
-			}
-		};
-	</script>
+
+
+	
+	
+
+
+
 </body>
 </html>
 </html>
