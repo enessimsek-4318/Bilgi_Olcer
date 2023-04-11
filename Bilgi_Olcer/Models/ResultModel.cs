@@ -2,8 +2,8 @@
 {
     public class ResultModel
     {
-        public int Correct { get; set; }
-        public int False { get; set; }
-        public int Empty { get; set; }
+        public int correctAnswer { get; set; }
+        public int falseAnswer { get; set; }
+        public int emptyAnswer { get; set; }
     }
 }

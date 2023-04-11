@@ -41,10 +41,38 @@ document.getElementById('submit').onclick = function () {
 
 
 
-const btn_finish = document.querySelector("#btn-finish");
-btn_finish.addEventListener("click", function () {
-    alert("bitirme butonu tıklandı.");
-});
+//const btn_finish = document.querySelector("#btn-finish");
+//btn_finish.addEventListener("click", function () {
+//    var dialog_res = confirm("Testi Bitirmek İstediğinize Emin misiniz?")
+//    if (dialog_res) {
+
+//        var data = {
+//            "correctAnswer": correctAnswer,
+//            "falseAnswer": falseAnswer,
+//            "emptyAnswer": emptyAnswer
+//        }
+
+//        $.ajax({
+//            url: "/Class/Test",
+//            type: "POST",
+//            data: JSON.stringify(data);
+//            success: function (data) {
+//                if (data.success) {
+//                    alert("Veriler başarıyla işlendi.");
+//                } else {
+//                    alert("Veriler işlenirken bir hata oluştu.");
+//                }
+//            },
+//            error: function () {
+//                alert("İsteğiniz işlenirken bir hata oluştu.");
+//            }
+//        });
+//    } else {
+//        alert("çıkış yapılmadı")
+//    }
+    
+//});
+
 
 
 
