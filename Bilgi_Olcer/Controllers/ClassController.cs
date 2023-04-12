@@ -30,16 +30,29 @@ namespace Bilgi_Olcer.Controllers
         [HttpGet]
         public IActionResult Test(string data)
         {
-            
+
+            // Soruları al
             List<Question> questions = _questionService.GetQuestion(data);
 
-            return View(questions);
+            // TestModel oluştur ve özellikleri ayarla
+            TestModel model = new TestModel();
+            model.Questions = questions;
+            model.Index = 0;
+
+            // İlk soruyu görüntüle
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Test(int correctAnswer, int falseAnswer, int empytAnswer)
+        public IActionResult Test(TestModel model)
         {
-            //int correctAnswer,int falseAnswer,int empytAnswer
-            return View();
+            // Sonraki soruya gitmek için indeksi artır
+            model.Questions = _questionService.GetQuestion(model.Subject);
+            model.Index++;
+
+          
+
+            // Bir sonraki soruyu görüntüle
+            return View(model);
         }
 
     }

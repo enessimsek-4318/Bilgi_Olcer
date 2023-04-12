@@ -2,8 +2,7 @@
 {
     public class ResultModel
     {
-        public int correctAnswer { get; set; }
-        public int falseAnswer { get; set; }
-        public int emptyAnswer { get; set; }
+        public string Answer { get; set; }
+        public string qIndex { get; set; }
     }
 }

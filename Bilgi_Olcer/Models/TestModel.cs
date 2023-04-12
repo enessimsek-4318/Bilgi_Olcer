@@ -1,0 +1,11 @@
+﻿using Entities;
+
+namespace Bilgi_Olcer.Models
+{
+    public class TestModel
+    {
+        public List<Question> Questions { get; set; } = new List<Question>();
+        public int Index { get; set; }
+        public string Subject { get; set; }
+    }
+}

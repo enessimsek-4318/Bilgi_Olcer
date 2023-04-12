@@ -9,13 +9,19 @@
 //---------------------------Ş-------------------------
 //---------------------------E-------------------------
 //---------------------------K-------------------------
+
+
+
+
+
+
 const answer = document.getElementById("answer").value;
 //--------------------------------------------------
-let correctAnswer = 0;
+let correctAnswer = 5;
 //------------------
-let falseAnswer = 0;
+let falseAnswer = 2;
 //------------------
-let emptyAnswer = 0;
+let emptyAnswer = 3;
 //------------------
 document.getElementById('submit').onclick = function () {
     //-----------------------------------------------
@@ -24,61 +30,50 @@ document.getElementById('submit').onclick = function () {
     
     for (var radio of value) {
         if (radio.checked) {
-            //alert(radio.value)
+            alert(radio.value)
             if (radio.value == answer) {
                 //alert("correct");
                 correctAnswer++;
+                break;
             } else {
                 //falseAnswer++;
                 alert("false");
+                break;
             }
         } else {
             //emptyAnswer++;
             alert("empty");
+            break;
         }
     }
 };
 
 
 
-//const btn_finish = document.querySelector("#btn-finish");
-//btn_finish.addEventListener("click", function () {
-//    var dialog_res = confirm("Testi Bitirmek İstediğinize Emin misiniz?")
-//    if (dialog_res) {
-
-//        var data = {
-//            "correctAnswer": correctAnswer,
-//            "falseAnswer": falseAnswer,
-//            "emptyAnswer": emptyAnswer
-//        }
-
-//        $.ajax({
-//            url: "/Class/Test",
-//            type: "POST",
-//            data: JSON.stringify(data);
-//            success: function (data) {
-//                if (data.success) {
-//                    alert("Veriler başarıyla işlendi.");
-//                } else {
-//                    alert("Veriler işlenirken bir hata oluştu.");
-//                }
-//            },
-//            error: function () {
-//                alert("İsteğiniz işlenirken bir hata oluştu.");
-//            }
-//        });
-//    } else {
-//        alert("çıkış yapılmadı")
-//    }
+const btn_finish = document.querySelector("#btn-finish");
+btn_finish.addEventListener("click", function () {
+   
+    kaydet();
     
-//});
+});
 
 
 
 
 
 
-
+function kaydet() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/Class/Test", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            
+        }
+    };
+    var data = JSON.stringify({ correctAnswer: correctAnswer, falseAnswer: falseAnswer, emptyAnswer: emptyAnswer });
+    xhr.send(data);
+}
 
 
 
