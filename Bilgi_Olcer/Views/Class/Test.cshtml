@@ -214,14 +214,17 @@
 
 @using Microsoft.AspNetCore.Mvc;
 @model TestModel
+@{
+	int index = ViewBag.Index;
+}
 
-@if (Model.Index >= Model.Questions.Count)
+@if (index >= Model.Questions.Count)
 {
 	//@Html.Partial("Result", new ResultModel())
 }
 else
 {
-	var question = Model.Questions[Model.Index];
+	var question = Model.Questions[index];
 	<h2>@question.Text</h2>
 	<h2>@question.Subject</h2>
 	<form method="post">
@@ -232,7 +235,7 @@ else
 			<br />
 		}*@
 		<input type="hidden" name="subject" value="@question.Subject" />
-		<input type="hidden" name="index" value="Model.Questions[Model.Index]" />
+		<input type="hidden" name="index" value="@index" />
 		<input type="submit" value="Next" />
 	</form>
 }
