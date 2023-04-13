@@ -29,12 +29,8 @@ namespace Bilgi_Olcer.Controllers
         }
         [HttpGet]
         public IActionResult Test(int? index,string data)
-        {
-
-            
-            List<Question> questions = _questionService.GetQuestion(data);
-
-           
+        {            
+            List<Question> questions = _questionService.GetQuestion(data);           
             TestModel model = new TestModel();
             model.Questions = questions;
             if (index==null)
@@ -44,19 +40,19 @@ namespace Bilgi_Olcer.Controllers
             else
             {
                 ViewBag.Index = index;
-            }
-            
-            
-
-            
-            return View(model);
-            
+            }                 
+            return View(model);            
         }
         [HttpPost]
         public IActionResult Test(TestModel model)
         {
-
             return RedirectToAction("Test",new {index=model.Index+1,data=model.Subject});
+            // 1 - sayfa görünümü düzenlenecek.
+            // 2 - modelden gelecek cevaplara göre soruların doğru yanlış cevapları kontrol edilecek.
+            // 3 - doğru yanlış ve boş sayılarını tutan bir değişken oluşturucağım.
+            // 4 - Tutmuş olduğumuz bu verileri kullanıcının id si ile birlikte kaç doğru kaç yanlış hangi ders hangi konu bu gibi 
+            // bilgiler ile birlikte database kaydedeceğiz.
+            // 5 - Test ekranı için farklı bir layout kullanacağız. ekranda soru geçişleri ile değişmeyecek kısımlar burada tutulacaktır.
         }
 
     }
