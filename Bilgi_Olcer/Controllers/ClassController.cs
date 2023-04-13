@@ -17,8 +17,8 @@ namespace Bilgi_Olcer.Controllers
         public IActionResult Index(GradeModel model)
         {
             List<Question> subject=_questionService.GetSubject(model.Id);
-            
-            return View(subject);
+            List<Question> distinctList = subject.GroupBy(q => q.Subject).Select(g => g.First()).ToList();
+            return View(distinctList);
         }
         [HttpGet]
         public IActionResult Subject(ClassModel model)

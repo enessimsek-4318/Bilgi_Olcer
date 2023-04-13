@@ -1,4 +1,6 @@
-﻿namespace Bilgi_Olcer.Models
+﻿using Entities;
+
+namespace Bilgi_Olcer.Models
 {
     public class GradeModel
     {
