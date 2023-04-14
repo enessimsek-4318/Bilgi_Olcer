@@ -143,74 +143,10 @@
 	</script>
 
 	<script src="~/js/AnswerControl.js"></script>
-
-
-	
-	
-
-
-
 </body>
 </html>
 </html>*@
 
-
-
-@*@{ 
-    int currentIndex = 0; // İndeks başlangıç değeri
-}
-
-@if (Model != null && Model.Any()) // Eğer listemiz boş değilse
-{
-	<h2 id="currentIndex">Soru @currentIndex</h2>
-    <hr />
-    <form method="post" asp-action="Test">
-        <div>
-            <h3>@Model[currentIndex].Text</h3>         
-				
-					<p>
-						<input type="radio" id="optionA" name="option" value="@Model[currentIndex].OptionA" />
-						<label for="optionA" class="sorular">@Model[currentIndex].OptionA</label>
-					</p>
-					<p>
-						<input type="radio" id="optionB" name="option" value="@Model[currentIndex].OptionB" />
-						<label for="optionB" class="sorular">@Model[currentIndex].OptionB</label>
-					</p>
-					<p>
-						<input type="radio" id="optionC" name="option" value="@Model[currentIndex].OptionC" />
-						<label for="optionC" class="sorular">@Model[currentIndex].OptionC</label>
-					</p>
-					<p>
-						<input type="radio" id="optionD" name="option" value="@Model[currentIndex].OptionD" />
-						<label for="optionD" class="sorular">@Model[currentIndex].OptionD</label>
-					</p>
-					<p>
-						<input type="radio" id="optionE" name="option" value="@Model[currentIndex].OptionE" />
-						<label for="optionE" class="sorular">@Model[currentIndex].OptionE</label>
-					</p>
-					<input type="hidden" id="answer" value="@Model[currentIndex].Answer" />
-				            
-					<input type="hidden" name="CurrentIndex" value="@currentIndex" />
-            @if (currentIndex < Model.Count - 1) // Eğer henüz son soruda değilsek
-            {
-				<input onclick="cek()" value="Sonraki" type="button">
-				
-			}
-            else // Son soruda isek
-            {
-				<button type="button" onclick="cek()">Sonuçları Gör</button>
-            }
-        </div>
-    </form>
-}
-<script>
-	function cek(){
-		var Index = document.getElementById("currentIndex").innerHTML
-		console.log(Index);
-
-		Index+=1;
-	}
-</script>*@
 
 @using Microsoft.AspNetCore.Mvc;
 @model TestModel
