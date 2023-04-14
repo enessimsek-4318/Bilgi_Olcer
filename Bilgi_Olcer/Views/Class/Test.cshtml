@@ -1,5 +1,9 @@
-﻿
-@*
+﻿@using Microsoft.AspNetCore.Mvc;
+@model TestModel
+@{
+	int index = ViewBag.Index;
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,64 +25,65 @@
 		  referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="~/css/Test.css">
 
-	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-	<script src="https://code.jquery.com/jquery-migrate-3.4.1.js"></script>
-
 
 	<title>BilgiÖlçer | Test</title>
 </head>
-<body> 
+<body>
 
-	<!--1- NAVBAR -->
+	@*<!--1- NAVBAR -->
 	<nav class="navbar navbar-light justify-content-between">
-		<h1 class="navbar-brand h1">Quiz Time</h1>
-		<form class="form-inline">
-			<button class="btn btn-outline-success my-2 my-sm-0" id="btn-finish" type="submit">Testi Bitir</button>
-		</form>
-		<p><i class="fa-solid fa-user"></i> <span>Simmy</span></p>
+	<h1 class="navbar-brand h1">Quiz Time</h1>
+	<form class="form-inline">
+	<button class="btn btn-outline-success my-2 my-sm-0" id="btn-finish" type="submit">Testi Bitir</button>
+	</form>
+	<p><i class="fa-solid fa-user"></i> <span>Simmy</span></p>
 	</nav>
 
 	<!--2- SIDE BAR -->
 	<div class="w3-sidebar w3-bar-block w3-collapse w3-card" style="width:200px;" id="mySidebar">
-		<button class="w3-bar-item w3-button w3-hide-large"
-				onclick="w3_close()">
-			Kapat &times;
-		</button>
-		<a href="#" class="w3-bar-item w3-button m-3">Dashboard</a>
-		<a href="#" class="w3-bar-item w3-button m-3">Destek</a>
-		<a href="#" class="w3-bar-item w3-button m-3">Bildirim</a>
+	<button class="w3-bar-item w3-button w3-hide-large"
+	onclick="w3_close()">
+	Kapat &times;
+	</button>
+	<a href="#" class="w3-bar-item w3-button m-3">Dashboard</a>
+	<a href="#" class="w3-bar-item w3-button m-3">Destek</a>
+	<a href="#" class="w3-bar-item w3-button m-3">Bildirim</a>
+	</div>*@
+
+	@*	<div class="w3-main" style="margin-left:200px">
+
+	<div class="w3-teal">
+	<button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
 	</div>
-
-	<div class="w3-main" style="margin-left:200px">
-
-		<div class="w3-teal">
-			<button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-		</div>
 	</div>
 
 	<script>
-		function w3_open() {
-			document.getElementById("mySidebar").style.display = "block";
-		}
+	function w3_open() {
+	document.getElementById("mySidebar").style.display = "block";
+	}
 
-		function w3_close() {
-			document.getElementById("mySidebar").style.display = "none";
-		}
-	</script>
+	function w3_close() {
+	document.getElementById("mySidebar").style.display = "none";
+	}
+	</script>*@
 
 	<!--3- QUESTİONS -->
-	<div class="area row">
-		<div class="space col-sm-12 col-md-2 col-lg-4">
-		</div>
-		@{
-			int counter = 1;
-		}		
-		@for (int i = 0; i < Model.Count; i++)
-		{
+	@if (index >= Model.Questions.Count)
+	{
+		//@Html.Partial("Result", new ResultModel())
+		// Result Sayfası oluşturulacaktır.
+	}
+	else
+	{
+		var question = Model.Questions[index];
+		<div class="area row">
+			<div class="space col-sm-12 col-md-2 col-lg-4">
+			</div>
+
 			<div class="questionarea col-sm-12 col-md-10 col-lg-8">
 				<div class="baslik">
 					<div>
-						<h1>@Model[i].Subject</h1>
+						<h1>@question.Subject</h1>
 						<p>Aşağıdaki soruyu cevaplayınız.</p>
 					</div>
 
@@ -89,89 +94,66 @@
 
 				<div class="soru">
 					<div class="soruresmi">
-						<img src="@Model[i].PhotoUrl" alt="photo">
+						<img src="@question.PhotoUrl" alt="photo">
 					</div>
 					<div class="q1">
-						<h3>Question @counter/@Model.Count</h3>
-						<p>@Model[i].Text</p>
+						<h3>Question @index+1/@Model.Questions.Count</h3>
+						<p>@question.Text</p>
 					</div>
 				</div>
 			</div>
-
 			<div class="secenek">
 				<h3>Cevabı İşaretleyiniz</h3>
-				<form action="post">
+				<form method="post">
 					<p>
-						<input type="radio" id="optionA" name="option" value="@Model[i].OptionA" />
-						<label for="optionA" class="sorular">@Model[i].OptionA</label>
+						<input type="radio" id="optionA" name="option" value="@question.OptionA" />
+						<label for="optionA" class="sorular">@question.OptionA</label>
 					</p>
 					<p>
-						<input type="radio" id="optionB" name="option" value="@Model[i].OptionB" />
-						<label for="optionB" class="sorular">@Model[i].OptionB</label>
+						<input type="radio" id="optionB" name="option" value="@question.OptionB" />
+						<label for="optionB" class="sorular">@question.OptionB</label>
 					</p>
 					<p>
-						<input type="radio" id="optionC" name="option" value="@Model[i].OptionC" />
-						<label for="optionC" class="sorular">@Model[i].OptionC</label>
+						<input type="radio" id="optionC" name="option" value="@question.OptionC" />
+						<label for="optionC" class="sorular">@question.OptionC</label>
 					</p>
 					<p>
-						<input type="radio" id="optionD" name="option" value="@Model[i].OptionD" />
-						<label for="optionD" class="sorular">@Model[i].OptionD</label>
+						<input type="radio" id="optionD" name="option" value="@question.OptionD" />
+						<label for="optionD" class="sorular">@question.OptionD</label>
 					</p>
 					<p>
-						<input type="radio" id="optionE" name="option" value="@Model[i].OptionE" />
-						<label for="optionE" class="sorular">@Model[i].OptionE</label>
+						<input type="radio" id="optionE" name="option" value="@question.OptionE" />
+						<label for="optionE" class="sorular">@question.OptionE</label>
 					</p>
-					<input type="hidden" id="answer" value="@Model[i].Answer" />
+					<input type="hidden" name="subject" value="@question.Subject" />
+					<input type="hidden" name="index" value="@index" />
+					<input type="submit" value="Next" />
 				</form>
 
-				<p class="txtcenter">
-					<a class="btn" id="submit">Cevapla</a>
-				</p>
 
 			</div>
-		}
-	</div>
+		</div>
+
+
+	}
 
 
 
-	<script>
+@*	<script>
 		// When the user clicks on <div>, open the popup
 		function myFunction() {
 			var popup = document.getElementById("myPopup");
 			popup.classList.toggle("show");
 		}
-	</script>
+	</script>*@
 
-	<script src="~/js/AnswerControl.js"></script>
+	@*<script src="~/js/AnswerControl.js"></script>*@
 </body>
 </html>
-</html>*@
+</html>
 
 
-@using Microsoft.AspNetCore.Mvc;
-@model TestModel
-@{
-	int index = ViewBag.Index;
-}
 
-@if (index >= Model.Questions.Count)
-{
-	//@Html.Partial("Result", new ResultModel())
-}
-else
-{
-	var question = Model.Questions[index];
-	<h2>@question.Text</h2>
-	<h2>@question.Subject</h2>
-	<form method="post">
-		@*@foreach (var option in question.OptionA)
-		{
-			<input type="radio" name="@question.QuestionId" value="@option.OptionId" /> @option.OptionText
 
-			<br />
-		}*@
-		<input type="hidden" name="subject" value="@question.Subject" />
-		<input type="hidden" name="index" value="@index" />
-		<input type="submit" value="Next" />
-	</form>
-}
+
+
