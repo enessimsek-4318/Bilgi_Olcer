@@ -46,7 +46,21 @@ namespace Bilgi_Olcer.Controllers
         [HttpPost]
         public IActionResult Test(TestModel model)
         {
+            int counter = 0;
+            if (model.Option == model.Answer)
+            {
+                //Doğru sayısını bir artıracağım
+            }
+            else if (model.Option == null)
+            {
+                //Boş sayısını Bir artıracağım
+            }
+            else
+            {
+                //Yanlış sayısını bir artıracağım.
+            }
             return RedirectToAction("Test",new {index=model.Index+1,data=model.Subject});
+           
             // 1 - sayfa görünümü düzenlenecek.
             // 2 - modelden gelecek cevaplara göre soruların doğru yanlış cevapları kontrol edilecek.
             // 3 - doğru yanlış ve boş sayılarını tutan bir değişken oluşturucağım.
