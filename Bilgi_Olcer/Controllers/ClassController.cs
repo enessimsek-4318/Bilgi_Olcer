@@ -46,6 +46,9 @@ namespace Bilgi_Olcer.Controllers
         [HttpPost]
         public IActionResult Test(TestModel model)
         {
+            int correct = 0;
+            int fault = 0;
+            int empty = 0;
             int counter = 0;
             if (model.Option == model.Answer)
             {
