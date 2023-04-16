@@ -49,18 +49,19 @@ namespace Bilgi_Olcer.Controllers
             int correct = 0;
             int fault = 0;
             int empty = 0;
+
             int counter = 0;
             if (model.Option == model.Answer)
             {
-                //Doğru sayısını bir artıracağım
+                correct++;
             }
             else if (model.Option == null)
             {
-                //Boş sayısını Bir artıracağım
+                empty++;
             }
             else
             {
-                //Yanlış sayısını bir artıracağım.
+                fault++;
             }
             return RedirectToAction("Test",new {index=model.Index+1,data=model.Subject});
            
