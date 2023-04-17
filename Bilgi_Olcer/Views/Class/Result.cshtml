@@ -1,0 +1,19 @@
+﻿@model ResultModel
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Test Results</title>
+</head>
+<body>
+	<h1>Test Results</h1>
+	<p>Merhaba @Model.Name Yapmış Olduğunuz Testin Cevabı Aşağıdaki gibidir.</p>
+	<p>Doğru Cevap : <span id="correct-count">@Model.Correct</span></p>
+	<p>Yanlış Cevap : <span id="incorrect-count">@Model.Incorrect</span></p>
+	<p>Boş : <span id="unanswered-count">@Model.Empty</span></p>
+
+	<script>
+		// Javascript kodu buraya gelecek
+	</script>
+</body>
+</html>

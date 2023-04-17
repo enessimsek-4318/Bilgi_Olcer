@@ -2,7 +2,10 @@
 {
     public class ResultModel
     {
-        public string Answer { get; set; }
-        public string qIndex { get; set; }
+        public string userId { get; set; }
+        public string Name { get; set; }
+        public int Correct { get; set; }
+        public int Incorrect { get; set; }
+        public int Empty { get; set; }
     }
 }

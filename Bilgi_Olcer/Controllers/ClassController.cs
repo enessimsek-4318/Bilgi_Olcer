@@ -1,6 +1,8 @@
-﻿using Bilgi_Olcer.Models;
+﻿using Bilgi_Olcer.Identity;
+using Bilgi_Olcer.Models;
 using Bilgi_Olcer_BLL.Absract;
 using Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 
@@ -8,7 +10,7 @@ namespace Bilgi_Olcer.Controllers
 {
     public class ClassController : Controller
     {
-        private IQuestionService _questionService;
+        private IQuestionService _questionService;        
         public ClassController(IQuestionService questionService)
         {
             _questionService = questionService;
@@ -48,7 +50,7 @@ namespace Bilgi_Olcer.Controllers
         {
             int correct = 0;
 
-            int fault = 0;
+            int incorrect = 0;
 
             int empty = 0;
             
@@ -62,25 +64,27 @@ namespace Bilgi_Olcer.Controllers
             }
             else
             {
-                fault++;
+                incorrect++;
             }
             if (model.QuestionNumber<=model.Index+1)
             {
-                return RedirectToAction("Result");
-                //Bu kısımda test yölendirilirken doğru yanlış sayılarıda eklenebilir.
+                return RedirectToAction("Result", new {correct=correct, incorrect=incorrect, empty=empty});
+                
             }
             return RedirectToAction("Test",new {index=model.Index+1,data=model.Subject});
            
-            // 1 - sayfa görünümü düzenlenecek.
-            // 2 - modelden gelecek cevaplara göre soruların doğru yanlış cevapları kontrol edilecek.
-            // 3 - doğru yanlış ve boş sayılarını tutan bir değişken oluşturucağım.
-            // 4 - Tutmuş olduğumuz bu verileri kullanıcının id si ile birlikte kaç doğru kaç yanlış hangi ders hangi konu bu gibi 
-            // bilgiler ile birlikte database kaydedeceğiz.
-            // 5 - Test ekranı için farklı bir layout kullanacağız. ekranda soru geçişleri ile değişmeyecek kısımlar burada tutulacaktır.
+             
         }
         [HttpGet]
-        public IActionResult Result()
+        public IActionResult Result(int correct, int incorrect, int empty)
         {
+            if (correct==null || incorrect==null || empty==null)
+            {
+                // viewbag içerisinden gelen veri ekrana basılacak.
+            }
+            //var user = _userManager.FindByIdAsync(model.userId);
+
+          //  Name = User.Identity.Name;
           return View();
         }
         [HttpPost]
