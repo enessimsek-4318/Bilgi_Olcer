@@ -9,5 +9,6 @@ namespace Bilgi_Olcer.Models
         public string Subject { get; set; }
         public string Option { get; set; }
         public string Answer { get; set; }
+        public int QuestionNumber { get; set; }
     }
 }

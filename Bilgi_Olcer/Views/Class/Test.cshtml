@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Mvc;
+@{
+	Layout="_layout_2";
+}
 @model TestModel
 @{
 	int index = ViewBag.Index;
@@ -128,10 +131,7 @@
 					<input type="hidden" name="Answer" value="@question.Answer" />
 					<input type="hidden" name="subject" value="@question.Subject" />
 					<input type="hidden" name="index" value="@index" />
-					@if ((index-1) >= Model.Questions.Count)
-					{
-						<input type="submit" asp-controller="Class" asp-action="Result" value="Result" />
-					}
+					<input type="hidden" name="QuestionNumber" value="@Model.Questions.Count" />
 					<input type="submit" value="Next" />
 				</form>
 

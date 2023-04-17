@@ -47,10 +47,11 @@ namespace Bilgi_Olcer.Controllers
         public IActionResult Test(TestModel model)
         {
             int correct = 0;
-            int fault = 0;
-            int empty = 0;
 
-            int counter = 0;
+            int fault = 0;
+
+            int empty = 0;
+            
             if (model.Option == model.Answer)
             {
                 correct++;
@@ -62,6 +63,11 @@ namespace Bilgi_Olcer.Controllers
             else
             {
                 fault++;
+            }
+            if (model.QuestionNumber<=model.Index+1)
+            {
+                return RedirectToAction("Result");
+                //Bu kısımda test yölendirilirken doğru yanlış sayılarıda eklenebilir.
             }
             return RedirectToAction("Test",new {index=model.Index+1,data=model.Subject});
            
