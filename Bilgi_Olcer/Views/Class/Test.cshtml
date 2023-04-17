@@ -128,6 +128,10 @@
 					<input type="hidden" name="Answer" value="@question.Answer" />
 					<input type="hidden" name="subject" value="@question.Subject" />
 					<input type="hidden" name="index" value="@index" />
+					@if ((index-1) >= Model.Questions.Count)
+					{
+						<input type="submit" asp-controller="Class" asp-action="Result" value="Result" />
+					}
 					<input type="submit" value="Next" />
 				</form>
 
@@ -140,12 +144,12 @@
 
 
 
-@*	<script>
-		// When the user clicks on <div>, open the popup
-		function myFunction() {
-			var popup = document.getElementById("myPopup");
-			popup.classList.toggle("show");
-		}
+	@*	<script>
+	// When the user clicks on <div>, open the popup
+	function myFunction() {
+	var popup = document.getElementById("myPopup");
+	popup.classList.toggle("show");
+	}
 	</script>*@
 
 	@*<script src="~/js/AnswerControl.js"></script>*@

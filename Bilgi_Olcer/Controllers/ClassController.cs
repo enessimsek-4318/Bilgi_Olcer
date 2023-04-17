@@ -72,6 +72,16 @@ namespace Bilgi_Olcer.Controllers
             // bilgiler ile birlikte database kaydedeceğiz.
             // 5 - Test ekranı için farklı bir layout kullanacağız. ekranda soru geçişleri ile değişmeyecek kısımlar burada tutulacaktır.
         }
+        [HttpGet]
+        public IActionResult Result()
+        {
+          return View();
+        }
+        [HttpPost]
+        public IActionResult Result(int id)
+        {
+            return View();
+        }
 
     }
 }
