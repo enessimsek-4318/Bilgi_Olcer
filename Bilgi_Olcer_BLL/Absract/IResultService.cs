@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Bilgi_Olcer_BLL.Absract
 {
-    public interface ITestService
+    public interface IResultService
     {
+        void Save(Result entity);
     }
 }

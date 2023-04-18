@@ -11,10 +11,14 @@ namespace Bilgi_Olcer.Controllers
 {
     public class ClassController : Controller
     {
-        private IQuestionService _questionService;        
-        public ClassController(IQuestionService questionService)
+        private IQuestionService _questionService;
+        private IResultService _resultService;
+        private UserManager<User> _userManager;
+        public ClassController(IQuestionService questionService, IResultService resultService, UserManager<User> userManager)
         {
             _questionService = questionService;
+            _resultService = resultService;
+            _userManager = userManager;
         }
 
         public IActionResult Index(GradeModel model)
@@ -94,19 +98,23 @@ namespace Bilgi_Olcer.Controllers
 
         [HttpGet]
         public IActionResult Result()
-        {
-            // HttpContext.Session'dan doğru, yanlış ve boş cevap sayılarını alın
-            var correct = Convert.ToInt32(Request.Cookies["correct"]);
-            var incorrect = Convert.ToInt32(Request.Cookies["incorrect"]);
-            var empty = Convert.ToInt32(Request.Cookies["empty"]);
-
+        {         
             ResultModel model = new ResultModel()
             {
-                Correct = correct,
-                Incorrect = incorrect,
-                Empty = empty,
+                Correct = Convert.ToInt32(Request.Cookies["correct"]),
+                Incorrect = Convert.ToInt32(Request.Cookies["incorrect"]),
+                Empty = Convert.ToInt32(Request.Cookies["empty"]),
                 Name = User.Identity.Name
             };
+            var user = GetUserInfo();
+            Result entity = new Result()
+            {
+                userId=user.Result.Id,
+                Correct=model.Correct,
+                False=model.Incorrect,
+            };
+            _resultService.Save(entity);
+            
             return View(model);
         }
 
@@ -114,6 +122,12 @@ namespace Bilgi_Olcer.Controllers
         public IActionResult Result(int id)
         {
             return View();
+        }
+
+        public async Task<User> GetUserInfo()
+        {
+            User user = await _userManager.GetUserAsync(User);
+            return user;
         }
 
 

@@ -24,6 +24,9 @@ var roleManager = builder.Services.BuildServiceProvider().GetService<RoleManager
 builder.Services.AddScoped<IQuestionDal, QuestionDal>();
 builder.Services.AddScoped<IQuestionService, QuestionManager>();
 
+builder.Services.AddScoped<IResultDal, ResultDal>();
+builder.Services.AddScoped<IResultService, ResultManager>();
+
 builder.Services.Configure<IdentityOptions>(options =>
 {
     //password
