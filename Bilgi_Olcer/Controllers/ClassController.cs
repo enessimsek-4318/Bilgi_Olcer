@@ -49,37 +49,46 @@ namespace Bilgi_Olcer.Controllers
         [HttpPost]
         public IActionResult Test(TestModel model)
         {
-            // Varsayılan değerleri ayarlayın
-            //HttpContext.Session.SetInt32("correct", 0);
-            //HttpContext.Session.SetInt32("incorrect", 0);
-            //HttpContext.Session.SetInt32("empty", 0);
-
+            if (Request.Cookies["correct"]==null)
+            {
+                Response.Cookies.Append("correct", "0");
+                Response.Cookies.Append("incorrect", "0");
+                Response.Cookies.Append("empty", "0");
+            }
             if (model.Option == model.Answer)
             {
-                // Doğru cevap sayısını artırın
-                //var correct = HttpContext.Session.GetInt32("correct") ?? 0;
-                //HttpContext.Session.SetInt32("correct", correct + 1);
+                int correctCount = 0;
+                if (Request.Cookies["correct"] != null)
+                {
+                    int.TryParse(Request.Cookies["correct"], out correctCount);
+                }
+                correctCount++;
+                Response.Cookies.Append("correct", correctCount.ToString());
             }
             else if (model.Option == null)
             {
-                // Boş cevap sayısını artırın
-                //var empty = HttpContext.Session.GetInt32("empty") ?? 0;
-                //HttpContext.Session.SetInt32("empty", empty + 1);
+                int emptyCount = 0;
+                if (Request.Cookies["empty"] != null)
+                {
+                    int.TryParse(Request.Cookies["empty"], out emptyCount);
+                }
+                emptyCount++;
+                Response.Cookies.Append("empty", emptyCount.ToString());
             }
             else
             {
-                // Yanlış cevap sayısını artırın
-                //var incorrect = HttpContext.Session.GetInt32("incorrect") ?? 0;
-                //HttpContext.Session.SetInt32("incorrect", incorrect + 1);
+                int incorrectCount = 0;
+                if (Request.Cookies["incorrect"] != null)
+                {
+                    int.TryParse(Request.Cookies["incorrect"], out incorrectCount);
+                }
+                incorrectCount++;
+                Response.Cookies.Append("incorrect", incorrectCount.ToString());
             }
-
             if (model.QuestionNumber <= model.Index + 1)
-            {
-                // Test tamamlandıysa, sonuçları görüntülemek için Result metoduna yönlendirin
+            {                
                 return RedirectToAction("Result");
-            }
-
-            // Bir sonraki soruya yönlendirin
+            }            
             return RedirectToAction("Test", new { index = model.Index + 1, data = model.Subject });
         }
 
@@ -87,9 +96,9 @@ namespace Bilgi_Olcer.Controllers
         public IActionResult Result()
         {
             // HttpContext.Session'dan doğru, yanlış ve boş cevap sayılarını alın
-            var correct = HttpContext.Session.GetInt32("correct") ?? 0;
-            var incorrect = HttpContext.Session.GetInt32("incorrect") ?? 0;
-            var empty = HttpContext.Session.GetInt32("empty") ?? 0;
+            var correct = Convert.ToInt32(Request.Cookies["correct"]);
+            var incorrect = Convert.ToInt32(Request.Cookies["incorrect"]);
+            var empty = Convert.ToInt32(Request.Cookies["empty"]);
 
             ResultModel model = new ResultModel()
             {
