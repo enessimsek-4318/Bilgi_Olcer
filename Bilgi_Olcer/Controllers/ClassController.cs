@@ -114,6 +114,8 @@ namespace Bilgi_Olcer.Controllers
                 False=model.Incorrect,
             };
             _resultService.Save(entity);
+            // Sonuçlar db'ye kayıt edilmiyor gözden geçirilmesi lazım.
+            // işlem bittiten sonra cookies verileri silinmeli.
             
             return View(model);
         }
