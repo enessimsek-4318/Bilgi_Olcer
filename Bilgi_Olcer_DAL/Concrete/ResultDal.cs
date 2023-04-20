@@ -13,10 +13,20 @@ namespace Bilgi_Olcer_DAL.Concrete
     {
         public void Create(Result entity)
         {
-            using (var context=new DataContext())
+            try
             {
-                context.Results.Add(entity);
+                using (var context = new DataContext())
+                {
+                    context.Results.Add(entity);
+                    context.SaveChanges();
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         public void Delete(Result entity)

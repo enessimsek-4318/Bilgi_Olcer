@@ -112,6 +112,7 @@ namespace Bilgi_Olcer.Controllers
                 userId=user.Result.Id,
                 Correct=model.Correct,
                 False=model.Incorrect,
+                Empty=model.Empty
             };
             _resultService.Save(entity);
             // Sonuçlar db'ye kayıt edilmiyor gözden geçirilmesi lazım.
