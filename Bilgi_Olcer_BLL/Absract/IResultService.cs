@@ -9,6 +9,6 @@ namespace Bilgi_Olcer_BLL.Absract
 {
     public interface IResultService
     {
-        void Save(Result entity);
+        public void Save(Result entity);
     }
 }

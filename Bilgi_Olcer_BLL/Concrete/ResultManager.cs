@@ -19,7 +19,7 @@ namespace Bilgi_Olcer_BLL.Concrete
 
         public void Save(Result entity)
         {
-            _resultDal.Create(entity);
+             _resultDal.Create(entity);
         }
     }
 }

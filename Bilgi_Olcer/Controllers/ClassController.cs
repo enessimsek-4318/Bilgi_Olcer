@@ -115,9 +115,9 @@ namespace Bilgi_Olcer.Controllers
                 Empty=model.Empty
             };
             _resultService.Save(entity);
-            // Sonuçlar db'ye kayıt edilmiyor gözden geçirilmesi lazım.
-            // işlem bittiten sonra cookies verileri silinmeli.
-            
+            HttpContext.Response.Cookies.Delete("correct");
+            HttpContext.Response.Cookies.Delete("incorrect");
+            HttpContext.Response.Cookies.Delete("empty");
             return View(model);
         }
 
