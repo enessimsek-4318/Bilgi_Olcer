@@ -32,9 +32,9 @@ namespace Bilgi_Olcer_BLL.Concrete
             throw new NotImplementedException();
         }
 
-        public Question Get(Question entity)
+        public Question Get(int id)
         {
-            throw new NotImplementedException();
+            return _adminDal.GetById(id);
         }
 
         public Question Get(string id)
@@ -44,7 +44,7 @@ namespace Bilgi_Olcer_BLL.Concrete
 
         public List<Question> GetAll()
         {
-            throw new NotImplementedException();
+            return _adminDal.GetAll();
         }
     }
 }

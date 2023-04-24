@@ -12,7 +12,7 @@ namespace Bilgi_Olcer_BLL.Absract
         void Create(Question entity);
         void Edit(Question entity);
         void Delete(Question entity);
-        Question Get(string id);
+        Question Get(int id);
         List<Question> GetAll();
     }
 }

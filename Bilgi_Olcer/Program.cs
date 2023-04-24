@@ -27,6 +27,9 @@ builder.Services.AddScoped<IQuestionService, QuestionManager>();
 builder.Services.AddScoped<IResultDal, ResultDal>();
 builder.Services.AddScoped<IResultService, ResultManager>();
 
+builder.Services.AddScoped<IAdminDal, AdminDal>();
+builder.Services.AddScoped<IAdminService, AdminManager>();
+
 builder.Services.Configure<IdentityOptions>(options =>
 {
     //password

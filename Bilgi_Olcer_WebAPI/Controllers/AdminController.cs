@@ -16,32 +16,32 @@ namespace Bilgi_Olcer_WebAPI.Controllers
             _adminService = adminService;
         }
         [HttpGet]
-        public async Task<ActionResult<List<Question>>> GetQuestions()
+        public ActionResult<List<Question>> GetQuestions()
         {
             return _adminService.GetAll();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Question>> GetQuestion(string id)
+        public ActionResult<Question> GetQuestion(int id)
         {
             return _adminService.Get(id);
         }
-        [HttpPost]
-        public async Task<ActionResult<Question>> AddQuestion(CreateModel model)
-        {
-            Question question = new Question();
+        //[HttpPost]
+        //public async Task<ActionResult<Question>> AddQuestion(CreateModel model)
+        //{
+        //    Question question = new Question();
             
-            return _adminService.Create(model);
-        }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteQuestion(string id)
-        {
-            return _adminService.Delete(id);
-        }
-        [HttpPut("{id}")]
-        public async Task<IActionResult> EditQuestion(string id, EditModel model)
-        {
+        //    return _adminService.Create(model);
+        //}
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeleteQuestion(string id)
+        //{
+        //    return _adminService.Delete(id);
+        //}
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> EditQuestion(string id, EditModel model)
+        //{
 
-        }
+        //}
 
     }
 }

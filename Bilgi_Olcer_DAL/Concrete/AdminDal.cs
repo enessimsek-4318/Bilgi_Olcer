@@ -28,12 +28,18 @@ namespace Bilgi_Olcer_DAL.Concrete
 
         public List<Question> GetAll(Expression<Func<Question, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            using (var context=new DataContext())
+            {
+                return context.Questions.ToList();
+            }
         }
 
         public Question GetById(int id)
         {
-            throw new NotImplementedException();
+            using (var context=new DataContext())
+            {
+                return context.Questions.Find(id);
+            }
         }
 
         public void Update(Question entity)
