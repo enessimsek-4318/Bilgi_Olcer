@@ -2,6 +2,7 @@
 using Bilgi_Olcer.Models;
 using Bilgi_Olcer_BLL.Absract;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,7 @@ namespace Bilgi_Olcer.Controllers
 
             return View();
         }
+        [Authorize]
         [HttpGet]
         public IActionResult Test(int? index,string data)
         {            
