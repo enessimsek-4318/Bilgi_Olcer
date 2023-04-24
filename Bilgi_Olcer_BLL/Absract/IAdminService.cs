@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bilgi_Olcer_BLL.Concrete
+namespace Bilgi_Olcer_BLL.Absract
 {
-    public class OptionManager
+    public interface IAdminService
     {
     }
 }
