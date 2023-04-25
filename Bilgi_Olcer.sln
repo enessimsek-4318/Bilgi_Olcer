@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bilgi_Olcer_DAL", "Bilgi_Ol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{3E7A72A7-1E28-4AEE-8271-BCAF71BA8EC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bilgi_Olcer_WebAPI", "Bilgi_Olcer_WebAPI\Bilgi_Olcer_WebAPI.csproj", "{45D693C3-4996-45CE-B84C-06AF5D5C9CD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bilgi_Olcer_WebAPI", "Bilgi_Olcer_WebAPI\Bilgi_Olcer_WebAPI.csproj", "{45D693C3-4996-45CE-B84C-06AF5D5C9CD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bilgi_Olcer_WinForm", "Bilgi_Olcer_WinForm\Bilgi_Olcer_WinForm.csproj", "{C9391FD4-286B-477F-ADBD-584FAD95F341}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{45D693C3-4996-45CE-B84C-06AF5D5C9CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45D693C3-4996-45CE-B84C-06AF5D5C9CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45D693C3-4996-45CE-B84C-06AF5D5C9CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9391FD4-286B-477F-ADBD-584FAD95F341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9391FD4-286B-477F-ADBD-584FAD95F341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9391FD4-286B-477F-ADBD-584FAD95F341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9391FD4-286B-477F-ADBD-584FAD95F341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
