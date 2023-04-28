@@ -20,14 +20,10 @@ namespace Bilgi_Olcer_WinForm
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            var client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:5045/");
-            HttpResponseMessage response = await client.GetAsync("api/Admin");
-            string result = await response.Content.ReadAsStringAsync();
-            List<Question> questions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Question>>(result);
 
+            List<Question> questions = await GetInfo(); 
             List<Question> distinctListGrade = questions.GroupBy(q => q.Grade).Select(g => g.First()).ToList();
-            List<Question> distinctListLesson = questions.GroupBy(q => q.Lesson).Select(g => g.First()).ToList();
+            List<Question> distinctListLesson = questions.GroupBy(q => q.Lesson).Select(l => l.First()).ToList();
 
             foreach (var item in distinctListGrade)
             {
@@ -38,18 +34,54 @@ namespace Bilgi_Olcer_WinForm
                 Lesson_combobox.Items.Add(item.Lesson);
             }
 
-            foreach (var item in questions)
+            SetList(questions);
+
+        }
+
+        private async void btn_list_Click(object sender, EventArgs e)
+        {
+
+            List<Question> questions = await GetInfo();
+            List<Question> filterQuestion = new List<Question>();
+            if (Grade_combobox.SelectedItem!=null)
+            {
+                string grade=Grade_combobox.SelectedItem.ToString();
+                string lesson = Lesson_combobox.SelectedItem.ToString();
+                foreach (var item in questions)
+                {
+                    if (grade == item.Grade)
+                    {
+                        filterQuestion.Add(item);
+                    }
+                    else if (lesson==item.Lesson)
+                    {
+                        filterQuestion.Add(item);
+                    }                    
+                }
+            }
+            question_list.Clear();
+            SetList(filterQuestion);
+
+        }
+
+        private async Task<List<Question>> GetInfo()
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:5045/");
+            HttpResponseMessage response = await client.GetAsync("api/Admin");
+            string result = await response.Content.ReadAsStringAsync();
+            List<Question> questions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Question>>(result);
+            return questions;
+        }
+        private void SetList(List<Question> list)
+        {
+            foreach (var item in list)
             {
                 string[] question = { item.Grade, item.Lesson, item.Subject, item.Text, item.Answer };
                 ListViewItem listItem = new ListViewItem(question);
                 question_list.Items.Add(listItem);
             };
-
         }
 
-        private void btn_list_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
