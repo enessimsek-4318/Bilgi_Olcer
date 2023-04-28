@@ -28,9 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.question_list = new System.Windows.Forms.ListView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.Sınıf = new System.Windows.Forms.ColumnHeader();
+            this.Ders = new System.Windows.Forms.ColumnHeader();
+            this.Konu = new System.Windows.Forms.ColumnHeader();
+            this.Soru = new System.Windows.Forms.ColumnHeader();
+            this.Cevap = new System.Windows.Forms.ColumnHeader();
+            this.Grade_combobox = new System.Windows.Forms.ComboBox();
+            this.Lesson_combobox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -39,28 +45,59 @@
             // 
             // question_list
             // 
+            this.question_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Sınıf,
+            this.Ders,
+            this.Konu,
+            this.Soru,
+            this.Cevap});
+            this.question_list.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
             this.question_list.Location = new System.Drawing.Point(12, 51);
             this.question_list.Name = "question_list";
-            this.question_list.Size = new System.Drawing.Size(776, 387);
+            this.question_list.Size = new System.Drawing.Size(1229, 387);
             this.question_list.TabIndex = 0;
+            this.question_list.TileSize = new System.Drawing.Size(300, 50);
             this.question_list.UseCompatibleStateImageBehavior = false;
+            this.question_list.View = System.Windows.Forms.View.Details;
+            this.question_list.VirtualListSize = 1;
             this.question_list.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // comboBox1
+            // Sınıf
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(175, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 1;
+            this.Sınıf.Text = "Sınıf";
             // 
-            // comboBox2
+            // Ders
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(302, 22);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 2;
+            this.Ders.Text = "Ders";
+            // 
+            // Konu
+            // 
+            this.Konu.Text = "Konu";
+            // 
+            // Soru
+            // 
+            this.Soru.Text = "Soru";
+            // 
+            // Cevap
+            // 
+            this.Cevap.Text = "Cevap";
+            // 
+            // Grade_combobox
+            // 
+            this.Grade_combobox.FormattingEnabled = true;
+            this.Grade_combobox.Location = new System.Drawing.Point(175, 22);
+            this.Grade_combobox.Name = "Grade_combobox";
+            this.Grade_combobox.Size = new System.Drawing.Size(121, 23);
+            this.Grade_combobox.TabIndex = 1;
+            // 
+            // Lesson_combobox
+            // 
+            this.Lesson_combobox.FormattingEnabled = true;
+            this.Lesson_combobox.Location = new System.Drawing.Point(302, 22);
+            this.Lesson_combobox.Name = "Lesson_combobox";
+            this.Lesson_combobox.Size = new System.Drawing.Size(121, 23);
+            this.Lesson_combobox.TabIndex = 2;
             // 
             // button1
             // 
@@ -103,16 +140,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1253, 450);
             this.Controls.Add(this.btn_list);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Lesson_combobox);
+            this.Controls.Add(this.Grade_combobox);
             this.Controls.Add(this.question_list);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -120,11 +158,16 @@
         #endregion
 
         private ListView question_list;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private ComboBox Grade_combobox;
+        private ComboBox Lesson_combobox;
         private Button button1;
         private Button button2;
         private Button button3;
         private Button btn_list;
+        private ColumnHeader Sınıf;
+        private ColumnHeader Ders;
+        private ColumnHeader Konu;
+        private ColumnHeader Soru;
+        private ColumnHeader Cevap;
     }
 }
