@@ -40,27 +40,27 @@ namespace Bilgi_Olcer_WinForm
 
         private async void btn_list_Click(object sender, EventArgs e)
         {
-
-            List<Question> questions = await GetInfo();
-            List<Question> filterQuestion = new List<Question>();
-            if (Grade_combobox.SelectedItem!=null)
-            {
-                string grade=Grade_combobox.SelectedItem.ToString();
-                string lesson = Lesson_combobox.SelectedItem.ToString();
-                foreach (var item in questions)
-                {
-                    if (grade == item.Grade)
-                    {
-                        filterQuestion.Add(item);
-                    }
-                    else if (lesson==item.Lesson)
-                    {
-                        filterQuestion.Add(item);
-                    }                    
-                }
-            }
-            question_list.Clear();
-            SetList(filterQuestion);
+            //question_list.Clear();
+            //List<Question> questions = await GetInfo();
+            //List<Question> filterQuestion = new List<Question>();
+            //if (Grade_combobox.SelectedItem!=null)
+            //{
+            //    string grade=Grade_combobox.SelectedItem.ToString();
+            //    string lesson = Lesson_combobox.SelectedItem.ToString();
+            //    foreach (var item in questions)
+            //    {
+            //        if (grade == item.Grade.ToString())
+            //        {
+            //            filterQuestion.Add(item);
+            //        }
+            //        else if (lesson==item.Lesson.ToString())
+            //        {
+            //            filterQuestion.Add(item);
+            //        }                    
+            //    }
+            //}
+            
+            //SetList(filterQuestion);
 
         }
 
