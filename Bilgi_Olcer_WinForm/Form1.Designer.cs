@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.question_list = new System.Windows.Forms.ListView();
             this.Sınıf = new System.Windows.Forms.ColumnHeader();
             this.Ders = new System.Windows.Forms.ColumnHeader();
@@ -37,9 +37,9 @@
             this.Cevap = new System.Windows.Forms.ColumnHeader();
             this.Grade_combobox = new System.Windows.Forms.ComboBox();
             this.Lesson_combobox = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.btn_list = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             this.Soru,
             this.Cevap});
             this.question_list.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem4});
             this.question_list.Location = new System.Drawing.Point(12, 51);
             this.question_list.Name = "question_list";
             this.question_list.Size = new System.Drawing.Size(1229, 387);
@@ -99,32 +99,35 @@
             this.Lesson_combobox.Size = new System.Drawing.Size(121, 23);
             this.Lesson_combobox.TabIndex = 2;
             // 
-            // button1
+            // btn_add
             // 
-            this.button1.Location = new System.Drawing.Point(429, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_add.Location = new System.Drawing.Point(429, 21);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(75, 23);
+            this.btn_add.TabIndex = 3;
+            this.btn_add.Text = "Ekle";
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // button2
+            // btn_edit
             // 
-            this.button2.Location = new System.Drawing.Point(510, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_edit.Location = new System.Drawing.Point(510, 22);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(75, 23);
+            this.btn_edit.TabIndex = 4;
+            this.btn_edit.Text = "Güncelle";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
-            // button3
+            // btn_delete
             // 
-            this.button3.Location = new System.Drawing.Point(591, 22);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_delete.Location = new System.Drawing.Point(591, 22);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete.TabIndex = 5;
+            this.btn_delete.Text = "Sil";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_list
             // 
@@ -142,9 +145,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1253, 450);
             this.Controls.Add(this.btn_list);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.btn_edit);
+            this.Controls.Add(this.btn_add);
             this.Controls.Add(this.Lesson_combobox);
             this.Controls.Add(this.Grade_combobox);
             this.Controls.Add(this.question_list);
@@ -160,9 +163,9 @@
         private ListView question_list;
         private ComboBox Grade_combobox;
         private ComboBox Lesson_combobox;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btn_add;
+        private Button btn_edit;
+        private Button btn_delete;
         private Button btn_list;
         private ColumnHeader Sınıf;
         private ColumnHeader Ders;

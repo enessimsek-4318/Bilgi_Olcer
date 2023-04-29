@@ -83,5 +83,21 @@ namespace Bilgi_Olcer_WinForm
             };
         }
 
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form2 form = new Form2();
+            form.Show();
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
