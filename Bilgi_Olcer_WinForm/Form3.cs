@@ -12,9 +12,16 @@ namespace Bilgi_Olcer_WinForm
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        private string id;
+        public Form3(string id)
         {
             InitializeComponent();
+            this.id= id;    
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

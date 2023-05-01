@@ -77,7 +77,7 @@ namespace Bilgi_Olcer_WinForm
         {
             foreach (var item in list)
             {
-                string[] question = { item.Grade, item.Lesson, item.Subject, item.Text, item.Answer };
+                string[] question = { item.Id.ToString(), item.Grade, item.Lesson, item.Subject, item.Text, item.Answer };
                 ListViewItem listItem = new ListViewItem(question);
                 question_list.Items.Add(listItem);
             };
@@ -89,9 +89,19 @@ namespace Bilgi_Olcer_WinForm
             Form2 form = new Form2();
             form.Show();
         }
-
         private void btn_edit_Click(object sender, EventArgs e)
         {
+            if (question_list.SelectedItems.Count<1)
+            {
+                MessageBox.Show("seçiniz");
+            }
+            else
+            {
+                ListViewItem selectedItem=question_list.SelectedItems[0];
+                Form3 form = new Form3(selectedItem.Text);
+                this.Hide();
+                form.Show();
+            }
 
         }
 

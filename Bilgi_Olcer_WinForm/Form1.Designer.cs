@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.question_list = new System.Windows.Forms.ListView();
             this.Sınıf = new System.Windows.Forms.ColumnHeader();
             this.Ders = new System.Windows.Forms.ColumnHeader();
             this.Konu = new System.Windows.Forms.ColumnHeader();
             this.Soru = new System.Windows.Forms.ColumnHeader();
             this.Cevap = new System.Windows.Forms.ColumnHeader();
+            this.Id = new System.Windows.Forms.ColumnHeader();
             this.Grade_combobox = new System.Windows.Forms.ComboBox();
             this.Lesson_combobox = new System.Windows.Forms.ComboBox();
             this.btn_add = new System.Windows.Forms.Button();
@@ -46,13 +47,14 @@
             // question_list
             // 
             this.question_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Id,
             this.Sınıf,
             this.Ders,
             this.Konu,
             this.Soru,
             this.Cevap});
             this.question_list.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem1});
             this.question_list.Location = new System.Drawing.Point(12, 51);
             this.question_list.Name = "question_list";
             this.question_list.Size = new System.Drawing.Size(1229, 387);
@@ -82,6 +84,10 @@
             // Cevap
             // 
             this.Cevap.Text = "Cevap";
+            // 
+            // Id
+            // 
+            this.Id.Text = "Soru Id";
             // 
             // Grade_combobox
             // 
@@ -172,5 +178,6 @@
         private ColumnHeader Konu;
         private ColumnHeader Soru;
         private ColumnHeader Cevap;
+        private ColumnHeader Id;
     }
 }
