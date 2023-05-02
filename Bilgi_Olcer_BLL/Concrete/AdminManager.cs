@@ -19,7 +19,7 @@ namespace Bilgi_Olcer_BLL.Concrete
     
         public void Create(Question entity)
         {
-            throw new NotImplementedException();
+            _adminDal.Create(entity);
         }
 
         public void Delete(Question entity)

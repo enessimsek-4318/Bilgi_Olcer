@@ -43,14 +43,14 @@ namespace Bilgi_Olcer_WebAPI.Controllers
 
         //}
         [HttpPut("{id}")]
-        public ActionResult EditQuestion(string id,Question model)
+        public ActionResult EditQuestion(string id, Question model)
         {
             if (id != model.Id.ToString())
             {
                 return BadRequest();
             }
             var question = _adminService.Get(Convert.ToInt32(id));
-            if (question!=null)
+            if (question != null)
             {
                 question = model;
                 _adminService.Edit(question);
@@ -61,7 +61,21 @@ namespace Bilgi_Olcer_WebAPI.Controllers
                 //Soru bulunamadı.
                 return NotFound();
             }
-            
+
+        }
+        [HttpPost]
+        public ActionResult AddQuestion(Question model)
+        {
+            try
+            {
+                _adminService.Create(model);
+            }
+            catch (Exception)
+            {
+
+                return NotFound();
+            }
+            return Ok();
         }
 
     }

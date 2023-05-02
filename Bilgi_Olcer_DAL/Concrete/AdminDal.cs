@@ -13,7 +13,11 @@ namespace Bilgi_Olcer_DAL.Concrete
     {
         public void Create(Question entity)
         {
-            throw new NotImplementedException();
+            using (var context=new DataContext())
+            {
+                context.Questions.Add(entity);
+                context.SaveChanges();
+            }
         }
 
         public void Delete(Question entity)

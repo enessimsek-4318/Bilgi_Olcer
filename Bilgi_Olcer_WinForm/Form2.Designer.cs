@@ -28,77 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txt_Grade = new System.Windows.Forms.TextBox();
+            this.txt_Lesson = new System.Windows.Forms.TextBox();
+            this.txt_Text = new System.Windows.Forms.RichTextBox();
+            this.txt_E = new System.Windows.Forms.TextBox();
+            this.txt_Answer = new System.Windows.Forms.TextBox();
+            this.txt_D = new System.Windows.Forms.TextBox();
+            this.txt_B = new System.Windows.Forms.TextBox();
+            this.txt_C = new System.Windows.Forms.TextBox();
+            this.txt_A = new System.Windows.Forms.TextBox();
+            this.txt_Subject = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(344, 23);
-            this.comboBox1.TabIndex = 0;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(344, 23);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(344, 23);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(12, 201);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(344, 23);
-            this.textBox3.TabIndex = 4;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(12, 259);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(344, 23);
-            this.textBox4.TabIndex = 5;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(12, 230);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(344, 23);
-            this.textBox5.TabIndex = 6;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(12, 288);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(344, 23);
-            this.textBox6.TabIndex = 7;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(12, 346);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(344, 23);
-            this.textBox7.TabIndex = 8;
             // 
             // button1
             // 
@@ -108,6 +50,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Dosya Seç";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -117,39 +60,96 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Ekle";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox8
+            // txt_Grade
             // 
-            this.textBox8.Location = new System.Drawing.Point(12, 317);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(344, 23);
-            this.textBox8.TabIndex = 11;
+            this.txt_Grade.Location = new System.Drawing.Point(12, 12);
+            this.txt_Grade.Name = "txt_Grade";
+            this.txt_Grade.Size = new System.Drawing.Size(344, 23);
+            this.txt_Grade.TabIndex = 36;
             // 
-            // richTextBox1
+            // txt_Lesson
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 99);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(344, 96);
-            this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "";
+            this.txt_Lesson.Location = new System.Drawing.Point(12, 41);
+            this.txt_Lesson.Name = "txt_Lesson";
+            this.txt_Lesson.Size = new System.Drawing.Size(344, 23);
+            this.txt_Lesson.TabIndex = 35;
+            // 
+            // txt_Text
+            // 
+            this.txt_Text.Location = new System.Drawing.Point(12, 99);
+            this.txt_Text.Name = "txt_Text";
+            this.txt_Text.Size = new System.Drawing.Size(344, 96);
+            this.txt_Text.TabIndex = 34;
+            this.txt_Text.Text = "";
+            // 
+            // txt_E
+            // 
+            this.txt_E.Location = new System.Drawing.Point(12, 317);
+            this.txt_E.Name = "txt_E";
+            this.txt_E.Size = new System.Drawing.Size(344, 23);
+            this.txt_E.TabIndex = 33;
+            // 
+            // txt_Answer
+            // 
+            this.txt_Answer.Location = new System.Drawing.Point(12, 346);
+            this.txt_Answer.Name = "txt_Answer";
+            this.txt_Answer.Size = new System.Drawing.Size(344, 23);
+            this.txt_Answer.TabIndex = 32;
+            // 
+            // txt_D
+            // 
+            this.txt_D.Location = new System.Drawing.Point(12, 288);
+            this.txt_D.Name = "txt_D";
+            this.txt_D.Size = new System.Drawing.Size(344, 23);
+            this.txt_D.TabIndex = 31;
+            // 
+            // txt_B
+            // 
+            this.txt_B.Location = new System.Drawing.Point(12, 230);
+            this.txt_B.Name = "txt_B";
+            this.txt_B.Size = new System.Drawing.Size(344, 23);
+            this.txt_B.TabIndex = 30;
+            // 
+            // txt_C
+            // 
+            this.txt_C.Location = new System.Drawing.Point(12, 259);
+            this.txt_C.Name = "txt_C";
+            this.txt_C.Size = new System.Drawing.Size(344, 23);
+            this.txt_C.TabIndex = 29;
+            // 
+            // txt_A
+            // 
+            this.txt_A.Location = new System.Drawing.Point(12, 201);
+            this.txt_A.Name = "txt_A";
+            this.txt_A.Size = new System.Drawing.Size(344, 23);
+            this.txt_A.TabIndex = 28;
+            // 
+            // txt_Subject
+            // 
+            this.txt_Subject.Location = new System.Drawing.Point(12, 70);
+            this.txt_Subject.Name = "txt_Subject";
+            this.txt_Subject.Size = new System.Drawing.Size(344, 23);
+            this.txt_Subject.TabIndex = 27;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 438);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.txt_Grade);
+            this.Controls.Add(this.txt_Lesson);
+            this.Controls.Add(this.txt_Text);
+            this.Controls.Add(this.txt_E);
+            this.Controls.Add(this.txt_Answer);
+            this.Controls.Add(this.txt_D);
+            this.Controls.Add(this.txt_B);
+            this.Controls.Add(this.txt_C);
+            this.Controls.Add(this.txt_A);
+            this.Controls.Add(this.txt_Subject);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -158,18 +158,17 @@
         }
 
         #endregion
-
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private TextBox textBox1;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox7;
         private Button button1;
         private Button button2;
-        private TextBox textBox8;
-        private RichTextBox richTextBox1;
+        private TextBox txt_Grade;
+        private TextBox txt_Lesson;
+        private RichTextBox txt_Text;
+        private TextBox txt_E;
+        private TextBox txt_Answer;
+        private TextBox txt_D;
+        private TextBox txt_B;
+        private TextBox txt_C;
+        private TextBox txt_A;
+        private TextBox txt_Subject;
     }
 }
