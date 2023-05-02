@@ -29,7 +29,7 @@ namespace Bilgi_Olcer_BLL.Concrete
 
         public void Edit(Question entity)
         {
-            throw new NotImplementedException();
+            _adminDal.Update(entity);
         }
 
         public Question Get(int id)

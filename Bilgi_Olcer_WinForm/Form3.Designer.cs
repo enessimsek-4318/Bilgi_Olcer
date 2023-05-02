@@ -65,6 +65,7 @@
             this.button2.TabIndex = 22;
             this.button2.Text = "Güncelle";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -74,6 +75,7 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "Dosya Seç";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txt_Answer
             // 

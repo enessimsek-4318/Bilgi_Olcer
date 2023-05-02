@@ -44,7 +44,11 @@ namespace Bilgi_Olcer_DAL.Concrete
 
         public void Update(Question entity)
         {
-            throw new NotImplementedException();
+            using (var context=new DataContext())
+            {
+                context.Questions.Update(entity);
+                context.SaveChanges();
+            }
         }
     }
 }

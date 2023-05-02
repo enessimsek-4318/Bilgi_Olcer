@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +38,24 @@ namespace Bilgi_Olcer_WinForm
             txt_D.Text = question.OptionD;
             txt_E.Text = question.OptionE;
             txt_Answer.Text = question.Answer;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:5045/");
+            var updatedQuestion = new Question { Id = Convert.ToInt32(id),Grade=txt_Grade.Text,Lesson=txt_Lesson.Text,
+            Subject=txt_Subject.Text,Text=txt_Text.Text,OptionA=txt_A.Text,OptionB=txt_B.Text,OptionC=txt_C.Text,
+            OptionD=txt_D.Text,OptionE=txt_E.Text,Answer=txt_Answer.Text,PhotoUrl=null};
+            var content = new StringContent(JsonConvert.SerializeObject(updatedQuestion), Encoding.UTF8, "application/json");
+            var response = await client.PutAsync($"api/Admin/{updatedQuestion.Id}", content);
+            
+
         }
     }
 }

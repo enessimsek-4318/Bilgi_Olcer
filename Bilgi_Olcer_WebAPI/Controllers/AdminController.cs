@@ -29,7 +29,7 @@ namespace Bilgi_Olcer_WebAPI.Controllers
         //public async Task<ActionResult<Question>> AddQuestion(CreateModel model)
         //{
         //    Question question = new Question();
-            
+
         //    return _adminService.Create(model);
         //}
         //[HttpDelete("{id}")]
@@ -42,6 +42,27 @@ namespace Bilgi_Olcer_WebAPI.Controllers
         //{
 
         //}
+        [HttpPut("{id}")]
+        public ActionResult EditQuestion(string id,Question model)
+        {
+            if (id != model.Id.ToString())
+            {
+                return BadRequest();
+            }
+            var question = _adminService.Get(Convert.ToInt32(id));
+            if (question!=null)
+            {
+                question = model;
+                _adminService.Edit(question);
+                return Ok(question);
+            }
+            else
+            {
+                //Soru bulunamadı.
+                return NotFound();
+            }
+            
+        }
 
     }
 }
