@@ -16,6 +16,7 @@ namespace Bilgi_Olcer_WinForm
     public partial class Form3 : Form
     {
         private string id;
+        private string PhotoURL;
         public Form3(string id)
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace Bilgi_Olcer_WinForm
             HttpResponseMessage response = await client.GetAsync($"api/Admin/{id}");
             string result = await response.Content.ReadAsStringAsync();
             Question question = Newtonsoft.Json.JsonConvert.DeserializeObject<Question>(result);
+            PhotoURL = question.PhotoUrl;
             txt_Grade.Text = question.Grade;
             txt_Lesson.Text=question.Lesson;
             txt_Subject.Text = question.Subject;
@@ -43,9 +45,19 @@ namespace Bilgi_Olcer_WinForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.Multiselect = false;
 
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    PhotoURL = openFileDialog.FileName;                    
+                }
+            }
         }
-
+        
         private async void button2_Click(object sender, EventArgs e)
         {
 
@@ -65,11 +77,19 @@ namespace Bilgi_Olcer_WinForm
                 OptionD = txt_D.Text,
                 OptionE = txt_E.Text,
                 Answer = txt_Answer.Text,
-                PhotoUrl = "abc"
+                PhotoUrl = PhotoURL
             };
 
             var content = new StringContent(JsonConvert.SerializeObject(updatedQuestion), Encoding.UTF8, "application/json");
             var response = await client.PutAsync($"api/Admin/{updatedQuestion.Id}", content);
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Değişiklik Kaydedildi.");
+            }
+            else
+            {
+                MessageBox.Show("Değişiklik Kaydedilemedi.");
+            }
         }
     }
 }
