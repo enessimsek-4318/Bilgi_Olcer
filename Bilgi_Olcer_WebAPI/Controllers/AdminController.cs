@@ -77,6 +77,29 @@ namespace Bilgi_Olcer_WebAPI.Controllers
             }
             return Ok();
         }
+        [HttpDelete("{id}")]
+        public ActionResult DeleteQuestion(string id)
+        {            
+            var deletedQuestion = _adminService.Get(Convert.ToInt32(id));
+            if (deletedQuestion!=null)
+            {
+                try
+                {
+                    _adminService.Delete(deletedQuestion);
+                }
+                catch (Exception)
+                {
+
+                    return NotFound();
+                }
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+            
+        }
 
     }
 }

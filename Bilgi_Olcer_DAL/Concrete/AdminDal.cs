@@ -22,7 +22,11 @@ namespace Bilgi_Olcer_DAL.Concrete
 
         public void Delete(Question entity)
         {
-            throw new NotImplementedException();
+            using (var context=new DataContext())
+            {
+                context.Questions.Remove(entity);
+                context.SaveChanges();
+            }
         }
 
         public Question Find(Expression<Func<Question, bool>> filter)

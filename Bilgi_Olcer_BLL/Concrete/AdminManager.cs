@@ -24,7 +24,7 @@ namespace Bilgi_Olcer_BLL.Concrete
 
         public void Delete(Question entity)
         {
-            throw new NotImplementedException();
+            _adminDal.Delete(entity);
         }
 
         public void Edit(Question entity)

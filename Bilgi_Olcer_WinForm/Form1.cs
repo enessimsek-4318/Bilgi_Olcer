@@ -1,6 +1,8 @@
 
 using Entities;
+using Newtonsoft.Json;
 using System.Reflection;
+using System.Text;
 
 namespace Bilgi_Olcer_WinForm
 {
@@ -21,7 +23,7 @@ namespace Bilgi_Olcer_WinForm
         private async void Form1_Load(object sender, EventArgs e)
         {
 
-            List<Question> questions = await GetInfo(); 
+            List<Question> questions = await GetInfo();
             List<Question> distinctListGrade = questions.GroupBy(q => q.Grade).Select(g => g.First()).ToList();
             List<Question> distinctListLesson = questions.GroupBy(q => q.Lesson).Select(l => l.First()).ToList();
 
@@ -59,7 +61,7 @@ namespace Bilgi_Olcer_WinForm
             //        }                    
             //    }
             //}
-            
+
             //SetList(filterQuestion);
 
         }
@@ -91,13 +93,13 @@ namespace Bilgi_Olcer_WinForm
         }
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            if (question_list.SelectedItems.Count<1)
+            if (question_list.SelectedItems.Count < 1)
             {
                 MessageBox.Show("seçiniz");
             }
             else
             {
-                ListViewItem selectedItem=question_list.SelectedItems[0];
+                ListViewItem selectedItem = question_list.SelectedItems[0];
                 Form3 form = new Form3(selectedItem.Text);
                 this.Hide();
                 form.Show();
@@ -105,9 +107,33 @@ namespace Bilgi_Olcer_WinForm
 
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
+        private async void btn_delete_Click(object sender, EventArgs e)
         {
+            if (question_list.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Lütfen silmek istediðiniz soru Id'sini seçiniz.");
+            }
+            else if (question_list.SelectedItems.Count > 1)
+            {
+                MessageBox.Show("Silmek istediðiniz soru için birden fazla seçim yapýlamaz.");
+            }
+            else
+            {
+                var client = new HttpClient();
+                ListViewItem DeletedItem = question_list.SelectedItems[0];
+                client.BaseAddress = new Uri("http://localhost:5045/");
+                HttpResponseMessage request = await client.DeleteAsync($"api/Admin/{DeletedItem.Text}");
 
+                if (request.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Soru Silindi.");
+                }
+                else
+                {
+                    MessageBox.Show("Soru Silinemedi.");
+                }
+
+            }
         }
     }
 }
