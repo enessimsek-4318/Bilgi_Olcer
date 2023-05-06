@@ -271,5 +271,10 @@ namespace Bilgi_Olcer.Controllers
                 return View(model);
             }
         }
+
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
     }
 }
