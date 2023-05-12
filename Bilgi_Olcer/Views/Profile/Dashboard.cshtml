@@ -76,15 +76,18 @@
 								<th>Doğru</th>
 								<th>Yanlış</th>
 								<th>Boş</th>
-								<th>Başarı</th>
 								<th>Tarih</th>
+								<th>Başarı</th>
+								
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-
-							@foreach (var item in Model)
+							@for (int i = Model.Count-1; i >= 0; i--)
 							{
+								int total = @Model[i].Incorrect + @Model[i].Correct + @Model[i].Empty;
+								int correct = @Model[i].Correct;
+								int ratio = total > 0 ? correct * 100 / total : 0;
 								<tr>
 									<td class="checkbox-cell">
 										<label class="checkbox">
@@ -92,19 +95,20 @@
 											<span class="check"></span>
 										</label>
 									</td>
-									<td>@item.Lesson</td>
-									<td>@item.Subject</td>
-									<td>@item.Correct</td>
-									<td>@item.Incorrect</td>
-									<td>@item.Empty</td>
+									<td>@Model[i].Lesson</td>
+									<td>@Model[i].Subject</td>
+									<td>@Model[i].Correct</td>
+									<td>@Model[i].Incorrect</td>
+									<td>@Model[i].Empty</td>
+									<td>@Model[i].Date</td>
 									<td data-label="Progress" class="progress-cell">
-										<progress max="100" value="79">79</progress>
+										<progress max="100" value="@ratio">
+
+										</progress>
 									</td>
+
 									<td class="actions-cell">
 										<div class="buttons right nowrap">
-											<button class="button small green --jb-modal" data-target="sample-modal-2" type="button">
-												<span class="icon"><i class="mdi mdi-eye"></i></span>
-											</button>
 											<button class="button small red --jb-modal" data-target="sample-modal" type="button">
 												<span class="icon"><i class="mdi mdi-trash-can"></i></span>
 											</button>
@@ -112,8 +116,6 @@
 									</td>
 								</tr>
 							}
-
-
 						</tbody>
 					</table>
 				</div>

@@ -20,8 +20,7 @@ namespace Bilgi_Olcer.Controllers
         {
             var user = GetUser();
             var results = _resultService.GetResult(user.Result.Id);
-            List<ResultModel> model = new List<ResultModel>();
-            
+            List<ResultModel> model = new List<ResultModel>();            
             ViewData["Name"] = user.Result.FullName;
             foreach (var item in results)
             {
