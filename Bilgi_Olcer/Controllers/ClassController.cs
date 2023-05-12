@@ -30,8 +30,7 @@ namespace Bilgi_Olcer.Controllers
         }
         [HttpGet]
         public IActionResult Subject(ClassModel model)
-        {
-            
+        {          
 
             return View();
         }
@@ -60,6 +59,8 @@ namespace Bilgi_Olcer.Controllers
                 Response.Cookies.Append("correct", "0");
                 Response.Cookies.Append("incorrect", "0");
                 Response.Cookies.Append("empty", "0");
+                Response.Cookies.Append("lesson", model.Lesson);
+                Response.Cookies.Append("subject", model.Subject);
             }
             if (model.Option == model.Answer)
             {
@@ -106,7 +107,9 @@ namespace Bilgi_Olcer.Controllers
                 Correct = Convert.ToInt32(Request.Cookies["correct"]),
                 Incorrect = Convert.ToInt32(Request.Cookies["incorrect"]),
                 Empty = Convert.ToInt32(Request.Cookies["empty"]),
-                Name = User.Identity.Name
+                Name = User.Identity.Name,
+                Lesson=Request.Cookies["lesson"],
+                Subject= Request.Cookies["subject"]
             };
             var user = GetUserInfo();
             Result entity = new Result()
@@ -120,6 +123,8 @@ namespace Bilgi_Olcer.Controllers
             HttpContext.Response.Cookies.Delete("correct");
             HttpContext.Response.Cookies.Delete("incorrect");
             HttpContext.Response.Cookies.Delete("empty");
+            HttpContext.Response.Cookies.Delete("lesson");
+            HttpContext.Response.Cookies.Delete("subject");
             return View(model);
         }
 

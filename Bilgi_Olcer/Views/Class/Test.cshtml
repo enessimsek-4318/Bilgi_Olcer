@@ -107,7 +107,7 @@
 			</div>
 			<div class="secenek">
 				<h3>Cevabı İşaretleyiniz</h3>
-				<form method="post">
+				<form method="post">					
 					<p>
 						<input type="radio" id="optionA" name="Option" value="@question.OptionA" />
 						<label for="optionA" class="sorular">@question.OptionA</label>
@@ -128,14 +128,13 @@
 						<input type="radio" id="optionE" name="Option" value="@question.OptionE" />
 						<label for="optionE" class="sorular">@question.OptionE</label>
 					</p>
+					<input type="hidden" name="Lesson" value="@question.Lesson" />
 					<input type="hidden" name="Answer" value="@question.Answer" />
 					<input type="hidden" name="subject" value="@question.Subject" />
 					<input type="hidden" name="index" value="@index" />
 					<input type="hidden" name="QuestionNumber" value="@Model.Questions.Count" />
 					<input type="submit" value="Next" />
 				</form>
-
-
 			</div>
 		</div>
 
