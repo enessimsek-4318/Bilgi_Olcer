@@ -10,5 +10,7 @@ namespace Bilgi_Olcer_BLL.Absract
     public interface IResultService
     {
         public void Save(Result entity);
+        public List<Result> GetResult(string UserId);
+        public void Delete(Result entity);
     }
 }

@@ -17,6 +17,16 @@ namespace Bilgi_Olcer_BLL.Concrete
             _resultDal = resultDal;
         }
 
+        public void Delete(Result entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Result> GetResult(string UserId)
+        {
+            return _resultDal.GetResult(UserId);
+        }
+
         public void Save(Result entity)
         {
              _resultDal.Create(entity);

@@ -9,5 +9,6 @@ namespace Bilgi_Olcer_DAL.Abstract
 {
     public interface IResultDal:IGenericRepository<Result>
     {
+        List<Result> GetResult(string id);
     }
 }

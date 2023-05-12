@@ -49,6 +49,14 @@ namespace Bilgi_Olcer_DAL.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Result> GetResult(string id)
+        {
+            using (var context=new DataContext())
+            {
+                return context.Results.Where(i => i.userId == id).ToList();
+            }
+        }
+
         public void Update(Result entity)
         {
             throw new NotImplementedException();
