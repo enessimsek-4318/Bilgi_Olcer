@@ -117,7 +117,11 @@ namespace Bilgi_Olcer.Controllers
                 userId=user.Result.Id,
                 Correct=model.Correct,
                 False=model.Incorrect,
-                Empty=model.Empty
+                Empty=model.Empty,
+                Subject=model.Subject,
+                Lesson=model.Lesson,
+                Date=DateTime.Now.ToString(),
+                
             };
             _resultService.Save(entity);
             HttpContext.Response.Cookies.Delete("correct");
