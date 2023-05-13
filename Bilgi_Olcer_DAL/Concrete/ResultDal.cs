@@ -31,12 +31,28 @@ namespace Bilgi_Olcer_DAL.Concrete
 
         public void Delete(Result entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var context = new DataContext())
+                {
+                    context.Results.Remove(entity);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
-        public Result Find(Expression<Func<Result, bool>> filter)
+        public Result Find(int Id)
         {
-            throw new NotImplementedException();
+            using (var context=new DataContext())
+            {
+                return context.Results.FirstOrDefault(i => i.Id == Id);
+            }
         }
 
         public List<Result> GetAll(Expression<Func<Result, bool>> filter = null)

@@ -10,7 +10,7 @@ namespace Bilgi_Olcer_DAL.Abstract
     public interface IGenericRepository<T>
     {
         T GetById(int id);
-        T Find(Expression<Func<T, bool>> filter);
+        T Find(int Id);
         List<T> GetAll(Expression<Func<T, bool>> filter = null);
         void Create(T entity);
         void Update(T entity);

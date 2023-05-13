@@ -2,6 +2,7 @@
 {
     public class ResultModel
     {
+        public int Id { get; set; }
         public string userId { get; set; }
         public string Lesson { get; set; }
         public string Name { get; set; }

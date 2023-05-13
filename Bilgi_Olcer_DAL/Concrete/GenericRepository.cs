@@ -21,7 +21,7 @@ namespace Bilgi_Olcer_DAL.Concrete
             throw new NotImplementedException();
         }
 
-        public T Find(Expression<Func<T, bool>> filter)
+        public T Find(int Id)
         {
             throw new NotImplementedException();
         }

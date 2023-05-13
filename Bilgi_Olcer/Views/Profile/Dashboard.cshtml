@@ -109,9 +109,12 @@
 
 									<td class="actions-cell">
 										<div class="buttons right nowrap">
-											<button class="button small red --jb-modal" data-target="sample-modal" type="button">
-												<span class="icon"><i class="mdi mdi-trash-can"></i></span>
-											</button>
+											<form action="/Profile/Delete" method="post">
+												<input type="hidden" name="Id" value="@Model[i].Id">
+												<button class="button small red --jb-modal" type="submit">
+													<span class="icon"><i class="mdi mdi-trash-can"></i></span>
+												</button>
+											</form>										
 										</div>
 									</td>
 								</tr>

@@ -26,6 +26,7 @@ namespace Bilgi_Olcer.Controllers
             {
                 model.Add(new ResultModel
                 {
+                    Id = item.Id,
                     Correct = item.Correct,
                     Incorrect = item.False,
                     Empty = item.Empty,
@@ -36,6 +37,21 @@ namespace Bilgi_Olcer.Controllers
                 });
             }
             return View(model);
+        }
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+            var deletedResult=_resultService.Find(Id);
+            if (deletedResult != null)
+            {
+
+                _resultService.Delete(deletedResult);
+            }
+            else
+            {
+                return NotFound();
+            }
+            return RedirectToAction("Dashboard");
         }
         public async Task<User> GetUser()
         {

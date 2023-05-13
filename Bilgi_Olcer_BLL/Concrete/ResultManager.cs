@@ -19,7 +19,12 @@ namespace Bilgi_Olcer_BLL.Concrete
 
         public void Delete(Result entity)
         {
-            throw new NotImplementedException();
+            _resultDal.Delete(entity);
+        }
+
+        public Result Find(int Id)
+        {
+            return _resultDal.Find(Id);
         }
 
         public List<Result> GetResult(string UserId)

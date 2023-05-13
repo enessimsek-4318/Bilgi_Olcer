@@ -29,7 +29,7 @@ namespace Bilgi_Olcer_DAL.Concrete
             }
         }
 
-        public Question Find(Expression<Func<Question, bool>> filter)
+        public Question Find(int Id)
         {
             throw new NotImplementedException();
         }

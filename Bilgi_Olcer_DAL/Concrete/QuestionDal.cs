@@ -21,11 +21,6 @@ namespace Bilgi_Olcer_DAL.Concrete
             throw new NotImplementedException();
         }
 
-        public Question Find(Expression<Func<Question, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Question> GetAll(Expression<Func<Question, bool>> filter = null)
         {
             throw new NotImplementedException();
@@ -55,6 +50,11 @@ namespace Bilgi_Olcer_DAL.Concrete
             {
                 return context.Questions.Where(i => i.Subject == subject).ToList();
             }
+        }
+
+        public Question Find(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

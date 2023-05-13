@@ -11,6 +11,7 @@ namespace Bilgi_Olcer_BLL.Absract
     {
         public void Save(Result entity);
         public List<Result> GetResult(string UserId);
+        public Result Find(int Id);
         public void Delete(Result entity);
     }
 }
